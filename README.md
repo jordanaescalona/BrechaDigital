@@ -1,6 +1,10 @@
-# Brecha Digital en Argentina
+<p align="center">
+  <img src="imagenes/logo_brecha_digital.png" alt="Logo Brecha Digital: señal wifi mitad verde, mitad gris" width="180">
+</p>
 
-**¿Dónde vive hoy la desigualdad digital?**
+<h1 align="center">Brecha Digital en Argentina</h1>
+
+<p align="center"><b>¿Dónde vive hoy la desigualdad digital?</b></p>
 
 Tablero de Power BI que analiza el acceso, la calidad, la tecnología y el costo de la internet fija en las 24 jurisdicciones de Argentina, entre 2014 y 2026, usando solo fuentes oficiales.
 
@@ -82,6 +86,32 @@ El detalle completo, con cálculos, notas metodológicas y pendientes de verific
 | 5. Quiénes y costo | Uso por edad y nivel educativo; costo vs. países de la región |
 | 6. Conclusión | Gran idea y datos que no se ven |
 
+## Vista del tablero
+
+**1. Conectados**
+
+![Página 1 del tablero: Conectados](imagenes/pagina1_conectados.png)
+
+**2. Acceso**
+
+![Página 2 del tablero: Acceso](imagenes/pagina2_acceso.png)
+
+**3. Calidad**
+
+![Página 3 del tablero: Calidad](imagenes/pagina3_calidad.png)
+
+**4. Tecnología**
+
+![Página 4 del tablero: Tecnología](imagenes/pagina4_tecnologia.png)
+
+**5. Quiénes y costo**
+
+![Página 5 del tablero: Quiénes y costo](imagenes/pagina5_quienes_y_costo.png)
+
+**6. Conclusión**
+
+![Página 6 del tablero: Conclusión](imagenes/pagina6_conclusion.png)
+
 ## Estructura del repositorio
 
 ```
@@ -91,6 +121,7 @@ BrechaDigital/
 │   ├── mundo/            Banco Mundial y UIT
 │   ├── social/           INDEC: EPH, Censo 2022, IPC
 │   └── documentacion/    hallazgos, registro de fuentes, diccionario DAX, informes INDEC
+├── imagenes/          logo y capturas del tablero
 ├── powerbi/
 │   ├── brecha_digital.pbix
 │   └── recursos/         tema de colores, íconos, fondos y bocetos del diseño
