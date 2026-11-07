@@ -1,0 +1,20 @@
+Brecha Digital en Argentina
+Copyright (c) 2026 Jordana Elizabeth Escalona Colivoro
+
+El análisis, el tablero de Power BI (powerbi/), los hallazgos, el diccionario
+de medidas y el resto de la documentación de este repositorio se publican bajo
+la licencia Creative Commons Atribución 4.0 Internacional (CC BY 4.0).
+
+Podés copiar, redistribuir, adaptar y reutilizar este material para cualquier
+fin, siempre que menciones a la autora, incluyas un enlace a la licencia e
+indiques si hiciste cambios.
+
+Texto completo de la licencia:
+https://creativecommons.org/licenses/by/4.0/legalcode.es
+
+DATOS DE TERCEROS
+Los archivos de datos de la carpeta datos/ fueron descargados de fuentes
+oficiales (ENACOM, INDEC, Banco Mundial, UIT) y pertenecen a esos organismos.
+Conservan sus propios términos de uso: al reutilizarlos, citá siempre a la
+fuente original. El detalle de cada fuente está en
+datos/documentacion/registro_fuentes.txt.

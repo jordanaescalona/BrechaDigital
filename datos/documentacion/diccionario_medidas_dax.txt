@@ -1,0 +1,594 @@
+DICCIONARIO DE MEDIDAS DAX
+Proyecto: Brecha Digital en Argentina (Power BI)
+Autora: Jordana Elizabeth Escalona Colivoro
+Última actualización: 03/11/2026
+Todas las medidas se guardan en la tabla "Medidas" del modelo.
+
+Cómo leer cada ficha:
+  Página   = dónde se usa en el tablero
+  Para qué = qué muestra o qué resuelve
+  Cómo     = explicación simple de la fórmula
+  Fórmula  = el DAX tal cual está en Power BI
+
+==================================================
+PÁGINA 1 · CONECTADOS
+==================================================
+
+1. Accesos 100 hogares (ultimo)
+   Página:   1 (tarjeta 85,4)
+   Para qué: muestra los accesos fijos cada 100 hogares del período más reciente
+             (2026 T2).
+   Cómo:     VAR guarda el último período de la tabla (MAX). CALCULATE suma los
+             accesos solo de ese período.
+   Fórmula:
+     Accesos 100 hogares (ultimo) =
+     VAR UltimoPeriodo = MAX ( fact_AccesosNacional[Periodo] )
+     RETURN
+         CALCULATE (
+             SUM ( fact_AccesosNacional[Accesos_100hogares] ),
+             fact_AccesosNacional[Periodo] = UltimoPeriodo
+         )
+
+2. Usuarios internet ARG (ultimo)
+   Página:   1 (tarjeta 89,7 %)
+   Para qué: % de personas que usan internet en Argentina, último año
+             disponible (Banco Mundial, 2024).
+   Cómo:     primero busca el último año que tiene dato para Argentina (ARG) y
+             después trae el porcentaje de ese año.
+   Fórmula:
+     Usuarios internet ARG (ultimo) =
+     VAR UltimoAnio =
+         CALCULATE (
+             MAX ( fact_UsuariosInternetMundo[Anio] ),
+             fact_UsuariosInternetMundo[CodigoPais] = "ARG"
+         )
+     RETURN
+         CALCULATE (
+             SUM ( fact_UsuariosInternetMundo[UsuariosInternet_pct] ),
+             fact_UsuariosInternetMundo[CodigoPais] = "ARG",
+             fact_UsuariosInternetMundo[Anio] = UltimoAnio
+         )
+
+3. Hogares con internet EPH (ultimo)
+   Página:   1 (tarjeta 93,7 %)
+   Para qué: % de hogares urbanos con internet según la EPH (INDEC), último año.
+   Cómo:     filtra el último año, el total de los 31 aglomerados, la unidad
+             "Hogares" y el bien "Internet". Sin el filtro de Area sumaba 3
+             filas "Total" y daba 280,2 (error corregido).
+   Fórmula:
+     Hogares con internet EPH (ultimo) =
+     VAR UltimoAnio = MAX ( fact_EphTicAreas[Anio] )
+     RETURN
+         CALCULATE (
+             SUM ( fact_EphTicAreas[Pct_Si] ),
+             fact_EphTicAreas[Anio] = UltimoAnio,
+             fact_EphTicAreas[Area] = "Total 31 aglomerados urbanos",
+             fact_EphTicAreas[Unidad] = "Hogares",
+             fact_EphTicAreas[Bien] = "Internet"
+         )
+
+4. Velocidad media (ultimo)
+   Página:   1 (tarjeta 264,6 Mbps)
+   Para qué: velocidad media de bajada del país en el período más reciente.
+   Cómo:     igual que la medida 1, pero con la tabla de velocidad nacional.
+   Fórmula:
+     Velocidad media (ultimo) =
+     VAR UltimoPeriodo = MAX ( fact_VelocidadNacional[Periodo] )
+     RETURN
+         CALCULATE (
+             SUM ( fact_VelocidadNacional[Velocidad_Mbps] ),
+             fact_VelocidadNacional[Periodo] = UltimoPeriodo
+         )
+
+5. Punto caida 2022
+   Página:   1 (punto bordó en el gráfico de líneas)
+   Para qué: marcar con un punto la caída de 2022 T2 (cambio de denominador,
+             no pérdida de conexiones).
+   Cómo:     devuelve el valor SOLO en la fecha 01/04/2022; en las demás fechas
+             queda en blanco, así el gráfico dibuja un único punto.
+   Fórmula:
+     Punto caida 2022 =
+     IF (
+         MAX ( dim_Fecha[Fecha] ) = DATE ( 2022, 4, 1 ),
+         SUM ( fact_AccesosNacional[Accesos_100hogares] )
+     )
+
+6. Puntos extremos
+   Página:   1 (puntos del inicio y el final de la línea)
+   Para qué: resaltar el primer valor (2014) y el último (2026 T2).
+   Cómo:     mismo truco que la anterior, con dos fechas unidas con || (o).
+   Fórmula:
+     Puntos extremos =
+     VAR f = MAX ( dim_Fecha[Fecha] )
+     RETURN
+         IF (
+             f = DATE ( 2014, 1, 1 ) || f = DATE ( 2026, 4, 1 ),
+             SUM ( fact_AccesosNacional[Accesos_100hogares] )
+         )
+
+==================================================
+PÁGINA 2 · ACCESO
+==================================================
+
+7. Brecha CABA - Formosa
+   Página:   2 (tarjetas 96 -> 70)
+   Para qué: distancia en accesos cada 100 hogares entre la provincia con más
+             acceso (CABA) y la de menos (Formosa).
+   Cómo:     resta dos CALCULATE: CABA menos Formosa. El año lo pone el filtro
+             de cada tarjeta (2014 o 2026). Se usa CABA-Formosa y no máximo-
+             mínimo por el salto de San Luis (ver hallazgo 7.12).
+   Fórmula:
+     Brecha CABA - Formosa =
+     CALCULATE (
+         SUM ( fact_Accesos[Accesos_100hogares] ),
+         dim_Provincias[NombreENACOM] = "CABA"
+     )
+         - CALCULATE (
+             SUM ( fact_Accesos[Accesos_100hogares] ),
+             dim_Provincias[NombreENACOM] = "Formosa"
+         )
+
+8. Accesos 2014
+   Página:   2 (parte clara de cada barra)
+   Para qué: accesos cada 100 hogares de cada provincia en 2014 T2.
+   Fórmula:
+     Accesos 2014 =
+     CALCULATE (
+         SUM ( fact_Accesos[Accesos_100hogares] ),
+         dim_Fecha[Anio] = 2014,
+         dim_Fecha[Trimestre] = 2
+     )
+
+9. Accesos 2026
+   Página:   2 (orden de las barras y tooltip)
+   Para qué: accesos cada 100 hogares de cada provincia en 2026 T2.
+   Fórmula:
+     Accesos 2026 =
+     CALCULATE (
+         SUM ( fact_Accesos[Accesos_100hogares] ),
+         dim_Fecha[Anio] = 2026,
+         dim_Fecha[Trimestre] = 2
+     )
+
+10. Aumento resto
+   Página:   2 (parte gris oscura de la barra)
+   Para qué: cuánto creció cada provincia que NO es del NEA.
+   Cómo:     2026 menos 2014, solo si la región no es NEA. Se separa en dos
+             medidas porque Power BI no deja usar color con fx cuando el
+             gráfico tiene varias medidas.
+   Fórmula:
+     Aumento resto =
+     IF (
+         SELECTEDVALUE ( dim_Provincias[Region] ) <> "NEA",
+         [Accesos 2026] - [Accesos 2014]
+     )
+
+11. Aumento NEA
+   Página:   2 (parte verde oliva de la barra)
+   Para qué: cuánto creció cada provincia del NEA, para resaltarlas.
+   Fórmula:
+     Aumento NEA =
+     IF (
+         SELECTEDVALUE ( dim_Provincias[Region] ) = "NEA",
+         [Accesos 2026] - [Accesos 2014]
+     )
+
+12. Color NEA
+   Página:   2 (primera prueba de color; quedó reemplazada por las medidas
+             10 y 11, se puede reutilizar)
+   Para qué: devuelve un color: oliva si la provincia es del NEA, gris si no.
+   Cómo:     se usa en Formato -> Color -> fx -> Valor de campo.
+   Fórmula:
+     Color NEA =
+     IF (
+         SELECTEDVALUE ( dim_Provincias[Region] ) = "NEA",
+         "#5B7F2B",
+         "#8C877F"
+     )
+
+==================================================
+PÁGINA 3 · CALIDAD
+==================================================
+
+13. Color calidad
+   Página:   3 (color de los puntos del gráfico de dispersión)
+   Para qué: pintar de verde oliva Tierra del Fuego y La Pampa (mucho acceso
+             pero baja velocidad) y dejar el resto en gris.
+   Cómo:     SELECTEDVALUE toma la provincia de cada punto; IN revisa si está
+             en la lista { }. Se usa en Marcadores -> Color -> fx.
+   Fórmula:
+     Color calidad =
+     VAR p = SELECTEDVALUE ( dim_Provincias[Provincia] )
+     RETURN
+         IF ( p IN { "Tierra del Fuego", "La Pampa" }, "#5B7F2B", "#B8B4AC" )
+
+14. Veces velocidad CABA vs La Rioja
+   Página:   3 (tarjeta "× 4,0")
+   Para qué: cuántas veces más rápida es la conexión media de CABA (la más
+             rápida) que la de La Rioja (la más lenta). 372,4 / 93,9 = 3,97.
+   Cómo:     DIVIDE divide la velocidad de CABA por la de La Rioja. Cada una se
+             calcula con CALCULATE filtrando la provincia. El período lo ponen
+             los filtros de la página (2026 T2). La tarjeta NO se filtra con el
+             segmentador Región (Editar interacciones -> Ninguno).
+   Formato:  personalizado "× "0.0  (se ve × 4,0)
+   Fórmula:
+     Veces velocidad CABA vs La Rioja =
+     DIVIDE (
+         CALCULATE ( SUM ( fact_Velocidad[Velocidad_Mbps] ), dim_Provincias[NombreENACOM] = "CABA" ),
+         CALCULATE ( SUM ( fact_Velocidad[Velocidad_Mbps] ), dim_Provincias[NombreENACOM] = "La Rioja" )
+     )
+
+==================================================
+PÁGINA 4 · TECNOLOGÍA
+==================================================
+
+15. Accesos tecnologia total
+   Página:   4 (base para los porcentajes)
+   Para qué: total de accesos fijos sumando todas las tecnologías.
+   Cómo:     la tabla fact_Tecnologias está despivotada (columnas Tecnologia
+             y Accesos). Se excluye un posible valor "Total" para no contar
+             dos veces.
+   Fórmula:
+     Accesos tecnologia total =
+     CALCULATE (
+         SUM ( fact_Tecnologias[Accesos] ),
+         fact_Tecnologias[Tecnologia] <> "Total"
+     )
+
+16. % fibra
+   Página:   4 (barras por provincia, 2026 T2)
+   Para qué: qué parte de los accesos fijos de cada provincia es de fibra
+             óptica (Tucumán 84,1 % vs. CABA 44,2 % y Tierra del Fuego 11,7 %).
+   Cómo:     accesos de fibra dividido el total (medida 15). Formato
+             Porcentaje, 1 decimal (DIVIDE devuelve 0,84 y el formato lo
+             muestra como 84,0 %).
+   Fórmula:
+     % fibra =
+     DIVIDE (
+         CALCULATE ( SUM ( fact_Tecnologias[Accesos] ), fact_Tecnologias[Tecnologia] = "Fibra Optica" ),
+         [Accesos tecnologia total]
+     )
+   (Verificar que el texto "Fibra Optica" coincida con el valor de la tabla.)
+
+17. Color fibra
+   Página:   4 (color de las barras)
+   Para qué: Tucumán en verde oliva (la de más fibra), CABA en gris oscuro
+             (para comparar) y Tierra del Fuego en bordó (la de menos fibra,
+             el único negativo de la página); el resto en gris.
+   Cómo:     SWITCH compara la provincia con cada caso; el último valor es el
+             "si no, ...".
+   Fórmula:
+     Color fibra =
+     SWITCH (
+         SELECTEDVALUE ( dim_Provincias[Provincia] ),
+         "Tucumán", "#5B7F2B",
+         "CABA", "#8C877F",
+         "Tierra del Fuego", "#9E2A3A",
+         "#B8B4AC"
+     )
+
+18. Accesos Otros
+   Página:   4 (gráfico de líneas del satélite)
+   Para qué: cantidad de accesos fijos de tecnología "Otros" (incluye
+             satelital). País: 194.796 (2023 T4) -> 965.634 (2026 T2), × 5
+             desde que se autorizó Starlink (Res. ENACOM 1/2024, 26/02/2024).
+   Cómo:     CALCULATE suma la columna Accesos solo donde Tecnologia = "Otros".
+             El segmentador Región también la filtra.
+   Fórmula:
+     Accesos Otros =
+     CALCULATE (
+         SUM ( fact_Tecnologias[Accesos] ),
+         fact_Tecnologias[Tecnologia] = "Otros"
+     )
+
+19. Punto Starlink
+   Página:   4 (punto sobre la línea en 2024 T1)
+   Para qué: marcar el momento en que ENACOM autorizó Starlink.
+   Cómo:     misma técnica que "Punto caida 2022": devuelve el valor solo en
+             la fecha 01/01/2024 y en blanco en las demás, así el gráfico
+             dibuja un único punto (línea de ancho 0 + marcador).
+   Fórmula:
+     Punto Starlink =
+     IF (
+         MAX ( dim_Fecha[Fecha] ) = DATE ( 2024, 1, 1 ),
+         [Accesos Otros]
+     )
+
+20. Fecha Starlink
+   Página:   4 (línea vertical "ENACOM autoriza Starlink")
+   Para qué: ubicar una línea constante del eje X en la fecha en que se
+             publicaron en el Boletín Oficial las Res. ENACOM 1 a 4/2024
+             (26/02/2024), que autorizaron a Starlink.
+   Cómo:     devuelve una fecha fija. Se usa en Análisis -> Línea constante
+             del eje X -> Valor -> fx -> Valor de campo. El eje X tiene que
+             ser de tipo Continuo.
+   Fórmula:
+     Fecha Starlink = DATE ( 2024, 2, 26 )
+
+21. % ADSL
+   Página:   4 (tooltip del gráfico de líneas: "ADSL (teléfono)")
+   Para qué: % de los accesos fijos de cada provincia que son de tecnología
+             ADSL. Igual que "% fibra" (medida 16), cambiando la tecnología.
+   Formato:  Porcentaje, 1 decimal.
+   Fórmula:
+     % ADSL =
+     DIVIDE (
+         CALCULATE ( SUM ( fact_Tecnologias[Accesos] ), fact_Tecnologias[Tecnologia] = "ADSL" ),
+         [Accesos tecnologia total]
+     )
+
+22. % cablemodem
+   Página:   4 (tooltip del gráfico de líneas: "Cable")
+   Para qué: % de los accesos fijos de cada provincia que son de tecnología
+             Cablemodem. Igual que "% fibra" (medida 16), cambiando la tecnología.
+   Formato:  Porcentaje, 1 decimal.
+   Fórmula:
+     % cablemodem =
+     DIVIDE (
+         CALCULATE ( SUM ( fact_Tecnologias[Accesos] ), fact_Tecnologias[Tecnologia] = "Cablemodem" ),
+         [Accesos tecnologia total]
+     )
+
+23. % inalambrica
+   Página:   4 (tooltip del gráfico de líneas: "Inalámbrica")
+   Para qué: % de los accesos fijos de cada provincia que son de tecnología
+             Wireless. Igual que "% fibra" (medida 16), cambiando la tecnología.
+   Formato:  Porcentaje, 1 decimal.
+   Fórmula:
+     % inalambrica =
+     DIVIDE (
+         CALCULATE ( SUM ( fact_Tecnologias[Accesos] ), fact_Tecnologias[Tecnologia] = "Wireless" ),
+         [Accesos tecnologia total]
+     )
+
+24. % otros
+   Página:   4 (tooltip del gráfico de líneas: "Otros (incluye satelital)")
+   Para qué: % de los accesos fijos de cada provincia que son de tecnología
+             Otros. Igual que "% fibra" (medida 16), cambiando la tecnología.
+   Formato:  Porcentaje, 1 decimal.
+   Fórmula:
+     % otros =
+     DIVIDE (
+         CALCULATE ( SUM ( fact_Tecnologias[Accesos] ), fact_Tecnologias[Tecnologia] = "Otros" ),
+         [Accesos tecnologia total]
+     )
+
+   Nota tooltip: en "Información sobre herramientas" del gráfico de LÍNEAS van
+   % fibra, % cablemodem, % inalambrica, % ADSL, % otros y Accesos tecnologia
+   total, renombradas solo para ese gráfico. Muestra cómo se repartían las
+   tecnologías del país en cada trimestre (ej. 2024 T2: cable 50,8 %, fibra
+   36,1 %, otros 1,7 %). Opcional: sumarlas también a las barras para ver el
+   detalle por provincia (ej. CABA 52,8 % cable).
+   Por qué NO hay segmentador de Tecnología en la página 4: estas medidas
+   fuerzan la tecnología con CALCULATE, pero el denominador respetaría el
+   segmentador y daría porcentajes imposibles (ej. fibra / ADSL > 1000 %).
+
+25. Color fuente matriz   (OPCIONAL - NO SE USÓ: se dejaron las reglas 0-70 / 70-100
+    y la anotación en bordó debajo de la matriz)
+   Página:   5 (color de los números de la matriz edad x educación)
+   Para qué: marcar en bordó las dos celdas del "dato que no se ve"
+             (18 a 29 años sin instrucción = 45,6 % y 65 y más con primaria
+             completa = 62,9 %) y, en las demás, número blanco sobre verde
+             oscuro (>= 70) u oscuro sobre verde claro (< 70).
+   Cómo:     SELECTEDVALUE lee la fila (edad) y la columna (nivel) de cada
+             celda. SWITCH(TRUE(), ...) revisa condiciones en orden y usa la
+             primera que se cumple. && significa "y".
+             Se usa en Elementos de celda -> Color de fuente -> fx -> Valor
+             de campo (reemplaza las reglas 0-70 / 70-100).
+   Fórmula:
+     Color fuente matriz =
+     VAR e = SELECTEDVALUE ( fact_EphTicEdadEducacion[GrupoEdad] )
+     VAR n = SELECTEDVALUE ( fact_EphTicEdadEducacion[Nivel] )
+     VAR v = SUM ( fact_EphTicEdadEducacion[Pct_Si] )
+     RETURN
+         SWITCH (
+             TRUE (),
+             e = "18 a 29 años" && n = "Sin instr.", "#9E2A3A",
+             e = "65 años y más" && n = "Prim. comp.", "#9E2A3A",
+             v >= 70, "#FFFFFF",
+             "#2A2824"
+         )
+
+26. Punto costo 2024
+   Página:   5 (punto bordó en el gráfico de línea del costo, Argentina)
+   Para qué: marcar el pico de 2024: la banda ancha fija costó 13,75 % del
+             ingreso per cápita (2018: 4,65 % · 2025: 6,71 %).
+   Cómo:     misma técnica que "Punto caida 2022" y "Punto Starlink":
+             devuelve el valor solo cuando el año es 2024; en los demás años
+             queda en blanco y el gráfico dibuja un único punto (línea de
+             ancho 0 + marcador). El gráfico se filtra con CodigoPais = ARG.
+   Fórmula:
+     Punto costo 2024 =
+     IF (
+         MAX ( fact_PrecioMundo[Anio] ) = 2024,
+         SUM ( fact_PrecioMundo[Precio_pct_ingreso] )
+     )
+
+27. Color precio pais
+   Página:   5 (barras "Y pagamos 3 veces más que los vecinos", UIT 2025)
+   Para qué: pintar Argentina en verde oliva y los países vecinos en gris
+             (Bolivia 8,0 · Argentina 6,7 · Paraguay 3,8 · Brasil 2,2 ·
+             Uruguay 2,1 · Chile 1,8 % del ingreso per cápita).
+   Cómo:     se usa en Barras -> Color -> fx -> Valor de campo.
+   Fórmula:
+     Color precio pais =
+     IF (
+         SELECTEDVALUE ( fact_PrecioMundo[CodigoPais] ) = "ARG",
+         "#5B7F2B",
+         "#B8B4AC"
+     )
+
+==================================================
+PÁGINA 5 · QUIÉNES Y COSTO (columnas de orden en Power Query)
+==================================================
+Para qué: que la matriz edad x educación muestre los niveles educativos de
+menor a mayor (Sin instrucción -> Superior completa) y las edades de menor
+a mayor, y no en orden alfabético.
+
+ERROR APRENDIDO: primero se hicieron como columnas calculadas DAX
+(Herramientas de tabla -> Nueva columna, con SWITCH). Al hacer
+"NivelEducativo -> Ordenar por columna -> OrdenEducacion" apareció
+"Se detectó una dependencia circular": la columna de orden se calcula A
+PARTIR de NivelEducativo, y NivelEducativo no puede ordenarse por una
+columna que depende de ella misma.
+SOLUCIÓN: crear las columnas en Power Query (Agregar columna -> Columna
+personalizada, tipo Número entero). Así llegan al modelo como columnas
+comunes y se puede usar "Ordenar por columna".
+
+C1. OrdenEducacion  (Power Query, consulta fact_EphTicEdadEducacion)
+   Uso: NivelEducativo -> Ordenar por columna -> OrdenEducacion.
+   Fórmula (lenguaje M):
+     if [NivelEducativo] = "Sin instrucción" then 1
+     else if [NivelEducativo] = "Primaria incompleta" then 2
+     else if [NivelEducativo] = "Primaria completa" then 3
+     else if [NivelEducativo] = "Secundaria incompleta" then 4
+     else if [NivelEducativo] = "Secundaria completa" then 5
+     else if [NivelEducativo] = "Superior y universitaria incompleta" then 6
+     else if [NivelEducativo] = "Superior y universitaria completa" then 7
+     else 8
+
+C2. OrdenEdad  (Power Query, consulta fact_EphTicEdadEducacion)
+   Uso: GrupoEdad -> Ordenar por columna -> OrdenEdad.
+   (En esta tabla los chicos están en un solo grupo: "4 a 17 años".)
+   Fórmula (lenguaje M):
+     if [GrupoEdad] = "4 a 17 años" then 1
+     else if [GrupoEdad] = "18 a 29 años" then 2
+     else if [GrupoEdad] = "30 a 64 años" then 3
+     else if [GrupoEdad] = "65 años y más" then 4
+     else 5
+
+C3. Nivel  (COLUMNA CALCULADA DAX, tabla fact_EphTicEdadEducacion)
+   Para qué: nombres cortos de los niveles educativos para que las 7
+             columnas de la matriz entren sin barra de desplazamiento.
+   Uso:      Nivel -> Ordenar por columna -> OrdenEducacion. En la matriz,
+             Columnas = Nivel (en lugar de NivelEducativo).
+   Por qué acá NO hay dependencia circular: Nivel se calcula a partir de
+             NivelEducativo, pero se ordena por OrdenEducacion (que viene de
+             Power Query y no depende de Nivel).
+   Fórmula:
+     Nivel =
+     SWITCH (
+         fact_EphTicEdadEducacion[NivelEducativo],
+         "Sin instrucción", "Sin instr.",
+         "Primaria incompleta", "Prim. inc.",
+         "Primaria completa", "Prim. comp.",
+         "Secundaria incompleta", "Sec. inc.",
+         "Secundaria completa", "Sec. comp.",
+         "Superior y universitaria incompleta", "Sup. inc.",
+         "Superior y universitaria completa", "Sup. comp.",
+         "Total"
+     )
+   Nota: "Nueva columna" de la cinta crea columnas DAX; las fórmulas
+   if ... then ... else son de Power Query (lenguaje M) y van en
+   Transformar datos -> Agregar columna -> Columna personalizada.
+
+C4. PaisES  (COLUMNA CALCULADA DAX, tabla fact_PrecioMundo)
+   Para qué: nombres de los países vecinos en castellano para el gráfico
+             "Y pagamos 3 veces más que los vecinos" (la UIT los trae en
+             inglés: Brazil). Si no es un vecino, deja el nombre original.
+   Fórmula:
+     PaisES =
+     SWITCH (
+         fact_PrecioMundo[CodigoPais],
+         "ARG", "Argentina",
+         "BOL", "Bolivia",
+         "BRA", "Brasil",
+         "CHL", "Chile",
+         "PRY", "Paraguay",
+         "URY", "Uruguay",
+         fact_PrecioMundo[Pais]
+     )
+
+==================================================
+POBREZA POR REGIÓN (páginas 2 y 3)
+==================================================
+Columna nueva en Power Query (consulta dim_Provincias) - RegionEPH:
+   Para qué: unir cada provincia con la región de la EPH, porque la
+             pobreza no viene por provincia sino por región/aglomerado.
+             CABA y Buenos Aires -> Gran Buenos Aires; NEA -> Noreste;
+             NOA -> Noroeste; Cuyo, Pampeana y Patagonia quedan igual.
+   Fórmula (lenguaje M, Columna personalizada):
+     if [Provincia] = "CABA" or [Provincia] = "Buenos Aires" then "Gran Buenos Aires"
+     else if [Region] = "NEA" then "Noreste"
+     else if [Region] = "NOA" then "Noroeste"
+     else [Region]
+
+28. Pobreza region
+   Para qué: % de personas bajo la línea de pobreza de la región EPH
+             (2S 2024): Noreste 47,0 · Noroeste 42,8 · Cuyo 41,9 ·
+             Gran Buenos Aires 37,3 · Pampeana 35,6 · Patagonia 33,5.
+   Cómo:     lee la región del punto (RegionEPH) y busca esa fila en
+             fact_PobrezaAreas. ALL(fact_PobrezaAreas) quita los filtros
+             que llegan desde las dimensiones, para poder encontrar la fila
+             de la región (que no tiene aglomerado).
+   Fórmula:
+     Pobreza region =
+     VAR r = SELECTEDVALUE ( dim_Provincias[RegionEPH] )
+     RETURN
+         CALCULATE (
+             MAX ( fact_PobrezaAreas[Pobreza_Personas] ),
+             FILTER (
+                 ALL ( fact_PobrezaAreas ),
+                 fact_PobrezaAreas[Area] = r
+                     && fact_PobrezaAreas[TipoArea] = "Region"
+             )
+         )
+
+29. Accesos promedio region
+   Para qué: promedio simple de accesos fijos cada 100 hogares de las
+             provincias de cada región (2026 T2): GBA 107,2 · Patagonia 91,1
+             · Pampeana 84,3 · Cuyo 75,9 · Noroeste 68,8 · Noreste 54,8.
+   Cómo:     AVERAGEX recorre las provincias de la región (VALUES) y
+             promedia el valor de cada una. Es un promedio SIMPLE (cada
+             provincia pesa igual), no ponderado por cantidad de hogares.
+   Fórmula:
+     Accesos promedio region =
+     AVERAGEX (
+         VALUES ( dim_Provincias[Provincia] ),
+         [Accesos 2026]
+     )
+   Cambio 06/11/2026: primero usaba CALCULATE(SUM(...)) y dependía de los
+   filtros de la página 2 (Anio = 2014 o 2026): sumaba los dos años y GBA daba
+   ~190 en vez de 107,2. Usando la medida [Accesos 2026] (que ya fija 2026 T2)
+   el resultado no depende de los filtros de la página.
+
+30. Velocidad promedio region
+   Para qué: promedio simple de la velocidad media de bajada de las
+             provincias de cada región (2026 T2): GBA 349,6 · Cuyo 252,4 ·
+             Patagonia 181,7 · Noreste 164,5 · Pampeana 154,3 · Noroeste 144,4.
+   Fórmula:
+     Velocidad promedio region =
+     AVERAGEX (
+         VALUES ( dim_Provincias[Provincia] ),
+         CALCULATE ( SUM ( fact_Velocidad[Velocidad_Mbps] ) )
+     )
+
+==================================================
+FUNCIONES DAX USADAS (glosario)
+==================================================
+SUM            suma una columna.
+MAX            devuelve el valor más alto (sirve para encontrar el último
+               período o año).
+CALCULATE      calcula algo cambiando los filtros (ej.: "solo CABA",
+               "solo 2014").
+VAR / RETURN   guarda un resultado intermedio con un nombre (VAR) y después
+               devuelve el resultado final (RETURN). Hace la fórmula más clara.
+IF             si se cumple la condición devuelve un valor; si no, otro (o
+               nada, en blanco).
+SELECTEDVALUE  devuelve el valor de una columna en el contexto actual (ej.: la
+               provincia de esa barra o de ese punto).
+DATE           arma una fecha: DATE(año, mes, día).
+&&             "y" lógico (se cumplen las dos condiciones).
+||             "o" lógico (se cumple una condición o la otra).
+IN { }         revisa si un valor está dentro de una lista.
+<>             distinto de.
+SWITCH(TRUE(),...) revisa varias condiciones en orden y devuelve la primera
+               que se cumple.
+SWITCH         compara un valor con varios casos y devuelve el resultado del
+               que coincide; el último valor es el que usa si ninguno coincide.
+AVERAGEX       recorre una lista (por ejemplo, las provincias) y promedia una
+               expresión para cada elemento.
+ALL            quita los filtros de una tabla o columna.
+FILTER         devuelve las filas de una tabla que cumplen una condición.
+DIVIDE         divide dos números; si el de abajo es 0 o está vacío devuelve
+               blanco en lugar de error (más seguro que usar /).

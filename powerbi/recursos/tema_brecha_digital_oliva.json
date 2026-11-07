@@ -1,0 +1,52 @@
+{
+  "name": "Brecha Digital - Oliva",
+  "dataColors": [
+    "#B8B4AC",
+    "#5B7F2B",
+    "#3B551A",
+    "#93B15E",
+    "#5A5650",
+    "#C5D6A3",
+    "#8C877F",
+    "#D9D5CE"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#2A2824",
+  "tableAccent": "#5B7F2B",
+  "good": "#5B7F2B",
+  "neutral": "#B8B4AC",
+  "bad": "#9E2A3A",
+  "maximum": "#3B551A",
+  "center": "#93B15E",
+  "minimum": "#EEF3E2",
+  "textClasses": {
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 32, "color": "#2A2824" },
+    "title": { "fontFace": "Segoe UI Semibold", "fontSize": 14, "color": "#2A2824" },
+    "header": { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#2A2824" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#5A5650" }
+  },
+  "visualStyles": {
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#FAF8F3" } }, "transparency": 0 }],
+        "outspace": [{ "color": { "solid": { "color": "#FAF8F3" } }, "transparency": 0 }]
+      }
+    },
+    "*": {
+      "*": {
+        "title": [{
+          "show": true,
+          "fontFamily": "Segoe UI Semibold",
+          "fontSize": 14,
+          "fontColor": { "solid": { "color": "#2A2824" } },
+          "alignment": "left"
+        }],
+        "background": [{ "show": false }],
+        "border": [{ "show": false }],
+        "dropShadow": [{ "show": false }],
+        "valueAxis": [{ "gridlineShow": false }],
+        "categoryAxis": [{ "gridlineShow": false }]
+      }
+    }
+  }
+}

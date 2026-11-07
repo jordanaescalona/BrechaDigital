@@ -1,0 +1,362 @@
+REGISTRO DE FUENTES – PROYECTO BRECHA DIGITAL EN ARGENTINA
+Autora: Jordana Elizabeth Escalona Colivoro
+Última actualización: 02/11/2026
+
+==================================================
+NIVEL MUNDIAL
+==================================================
+
+Archivo: bm_banda_ancha_100hab.csv
+Ubicación: datos\mundo\
+Indicador: Suscripciones de banda ancha fija (cada 100 personas) – IT.NET.BBND.P2
+Fuente original: Unión Internacional de Telecomunicaciones (UIT)
+Obtenido de: Banco Mundial – https://data.worldbank.org/indicator/IT.NET.BBND.P2
+Fecha de descarga: 18/10/2026
+Período: 1998–2025
+Unidad: suscripciones cada 100 habitantes
+Notas: incluye agregados regionales (LCN = América Latina, WLD = Mundo).
+
+Archivo: bm_usuarios_internet_pct.csv
+Ubicación: datos\mundo\
+Indicador: Personas que usan internet (% de la población) – IT.NET.USER.ZS
+Fuente original: UIT
+Obtenido de: Banco Mundial – https://data.worldbank.org/indicator/IT.NET.USER.ZS
+Fecha de descarga: 18/10/2026
+Período: 1990–2025
+Unidad: % de la población
+
+Archivo: bm_paises_metadata.csv
+Ubicación: datos\mundo\
+Contenido: región y nivel de ingresos de cada país
+Fuente: Banco Mundial (incluido en la descarga de IT.NET.BBND.P2)
+Fecha de descarga: 18/10/2026
+
+Archivo: uit_precio_banda_ancha_pct_ingreso.csv
+Ubicación: datos\mundo\
+Indicador: Cesta de banda ancha fija (5 GB), % del ingreso nacional bruto per cápita
+Fuente: UIT – ITU DataHub – https://datahub.itu.int/query/?i=100122
+Fecha de descarga: 18/10/2026
+Período: 2018–2025
+Unidad: % del INB per cápita
+Notas: plan más económico no promocional, mínimo 5 GB y 256 kbit/s.
+Argentina 2024 = 13,8 % (salto respecto de ~5 % en años anteriores).
+Coincide con el IPC: en dic-2024 Comunicación aumentó 186,4% interanual vs. 117,8% del nivel general (ver indec_ipc_divisiones.csv).
+
+Archivos de documentación (mundo):
+Ubicación: datos\documentacion\
+- bm_banda_ancha_definicion.csv: definición oficial y fuente del indicador IT.NET.BBND.P2
+- bm_usuarios_internet_definicion.csv: definición oficial y fuente del indicador IT.NET.USER.ZS
+Origen: incluidos en las descargas del Banco Mundial (archivos Metadata_Indicator).
+Fecha de descarga: 18/10/2026
+
+==================================================
+NIVEL NACIONAL Y PROVINCIAL
+==================================================
+
+Archivo: enacom_penetracion_provincias.csv
+Ubicación: datos\argentina\
+Indicador: Accesos a internet fija cada 100 hogares y cada 100 habitantes, por provincia
+Fuente: ENACOM – https://indicadores.enacom.gob.ar/DatosAbiertos/Internet/penetracion-provincias
+Fecha de descarga: 18/10/2026
+Período: 2014 T1 – 2026 T2
+Periodicidad: trimestral
+
+Archivo: enacom_tecnologias_provincias.csv
+Ubicación: datos\argentina\
+Indicador: Accesos a internet fija por tecnología y provincia
+Fuente: ENACOM – https://indicadores.enacom.gob.ar/DatosAbiertos/Internet/accesos-tecnologias-provincias
+Fecha de descarga: 18/10/2026
+Período: 2014 T1 – 2026 T2
+Periodicidad: trimestral
+
+Archivo: enacom_velocidad_provincias.csv
+Ubicación: datos\argentina\
+Indicador: Velocidad media de descarga por provincia (Mbps)
+Fuente: ENACOM – https://indicadores.enacom.gob.ar/DatosAbiertos/Internet/velocidad-media-provincias
+Fecha de descarga: 18/10/2026
+Período: 2014 T1 – 2026 T2
+Periodicidad: trimestral 
+
+Archivo: enacom_rango_velocidad_provincias.csv
+Ubicación: datos\argentina\
+Indicador: Accesos a internet fija por rango de velocidad de bajada, por provincia
+Fuente: ENACOM – https://indicadores.enacom.gob.ar/DatosAbiertos/Internet/accesos-velocidad-rango-provincias
+Fecha de descarga: 18/10/2026
+Período: 2014 T1 – 2026 T2
+Periodicidad: trimestral
+Notas: números con punto de miles; nombres de rango con apóstrofe inicial; quitar columna Total antes de anular dinamización.
+
+Archivo: enacom_velocidad_nacional.csv
+Ubicación: datos\argentina\
+Indicador: Velocidad media de descarga, total nacional (Mbps)
+Fuente: ENACOM – https://indicadores.enacom.gob.ar/DatosAbiertos/Internet/velocidad-media-totales
+Fecha de descarga: 18/10/2026
+Período: 2014 T1 – 2026 T2
+Periodicidad: trimestral
+Notas: se usa el dato oficial nacional en lugar de promediar provincias.
+Último valor: 264,56 Mbps (2026 T2).
+
+Archivo: enacom_penetracion_nacional.csv
+Ubicación: datos\argentina\
+Indicador: Accesos a internet fija cada 100 hogares y cada 100 habitantes, total nacional
+Fuente: ENACOM – https://indicadores.enacom.gob.ar/DatosAbiertos/Internet/penetracion-totales
+Fecha de descarga: 18/10/2026
+Período: 2014 T1 – 2026 T2
+Periodicidad: trimestral
+Notas: se usa el dato oficial nacional porque no se puede calcular promediando provincias (cada una tiene distinta cantidad de hogares).
+
+Archivo: georef_provincias.geojson
+Ubicación: datos\argentina\
+Fuente: Georef – Servicio de Normalización de Datos Geográficos (Argentina.gob.ar),
+        geometrías del IGN
+URL: https://apis.datos.gob.ar/georef/api/v2.0/provincias.geojson
+Fecha de descarga: 18/10/2026
+Sistema de coordenadas: WGS84 (EPSG:4326)
+Campos clave: id (código INDEC, ej. 02 = CABA, 06 = Buenos Aires), nombre, iso_id.
+Notas: convertido a TopoJSON con mapshaper.org → powerbi\recursos\provincias_argentina.topojson.
+       Se recortan las islas del Atlántico Sur más alejadas (bbox -74,-56,-53,-21)
+       solo por escala de visualización. Se conservan las Islas Malvinas.
+       Geometría sin simplificar (100%) para no perder las islas.
+
+Archivo: dim_provincias.csv
+Ubicación: datos\argentina\
+Contenido: tabla de dimensión de las 24 jurisdicciones (elaboración propia).
+Columnas: CodigoINDEC (texto, ej. "02"), ISO, Provincia, NombreGeoref,
+          NombreENACOM, ClaveArchivo, Region.
+Fuentes de los códigos: INDEC (códigos de provincia) e ISO 3166-2:AR.
+Uso: tabla puente para relacionar ENACOM (por NombreENACOM), Censo (por
+     ClaveArchivo) y el mapa de Georef (por CodigoINDEC).
+Notas: ENACOM escribe "Santiago Del Estero" y "Tierra Del Fuego" con D mayúscula.
+       CABA y Buenos Aires se asignan a la región Pampeana.
+
+==================================================
+INDICADORES SOCIALES
+==================================================
+
+--------------------------------------------------
+A. CENSO 2022 (INDEC)
+--------------------------------------------------
+Fuente general: INDEC, Censo Nacional de Población, Hogares y Viviendas 2022.
+                Resultados definitivos.
+Sitio: https://censo.gob.ar/index.php/datos_definitivos_total_pais/
+Fecha de publicación de los cuadros: 21/11/2023
+Año de referencia: 2022 (dato único, no es serie temporal)
+
+Archivo: indec_censo2022_internet_nacional.xlsx
+Ubicación: datos\social\
+Sección: Total del país > Condiciones habitacionales de la población
+Contenido: Población en viviendas particulares, por tenencia de internet en la
+           vivienda, según tenencia de celular con internet y computadora/tablet.
+Unidad: personas
+Fecha de descarga: 18/10/2026
+
+Archivos: indec_censo2022_internet_<provincia>.xlsx (24 archivos)
+Ubicación: datos\social\censo_internet_provincias\
+Sección: <Provincia> > Condiciones habitacionales de la población
+Contenido: el mismo cuadro, para cada una de las 24 jurisdicciones (23 provincias + CABA).
+Cuadro: 7.N (cambia según la provincia; ej. Salta = Cuadro 7.17).
+Hoja a usar: la tercera hoja de cada archivo (total provincial). Las siguientes
+             (7.N.1, 7.N.2...) son por departamento y no se usan por ahora.
+Unidad: personas
+Fecha de descarga: 18/10/2026
+Control: la suma de las 24 provincias debe coincidir con el total nacional.
+
+--------------------------------------------------
+B. ACCESO Y USO DE TIC – EPH (INDEC)
+--------------------------------------------------
+Encuesta a personas en hogares. Cobertura: 31 aglomerados urbanos (no por provincia).
+
+Archivo: indec_tic_eph_informe_4t2024.pdf   [FUENTE PRINCIPAL]
+Ubicación: datos\documentacion\informes_indec\
+Publicación: Informes técnicos Vol. 9, n° 113. Cuarto trimestre de 2024.
+URL: https://www.indec.gob.ar/uploads/informesdeprensa/mautic_05_25FD0D0C4A71.pdf
+Fecha de descarga: 19/10/2026
+Cuadros a usar:
+  1 - Hogares con computadora e internet, por región y aglomerado
+  2 - Población que usa internet, computadora y celular, por aglomerado
+  3 - Uso de TIC por sexo y grupo de edad (adultos mayores)
+  4 - Uso de TIC por grupo de edad y nivel educativo
+
+Archivo: indec_tic_eph_informe_4t2023.pdf
+Ubicación: datos\documentacion\informes_indec\
+Publicación: Informes técnicos Vol. 8, n° 111. Cuarto trimestre de 2023.
+URL: https://www.indec.gob.ar/uploads/informesdeprensa/mautic_05_24F87CFE2258.pdf
+Fecha de descarga: 19/10/2026
+Uso: comparación interanual.
+
+Archivo: indec_tic_eph_informe_4t2020.pdf
+Ubicación: datos\documentacion\informes_indec\
+Publicación: Informes técnicos Vol. 5, n° 89. Cuarto trimestre de 2020.
+URL: https://www.indec.gob.ar/uploads/informesdeprensa/mautic_05_213B13B3593A.pdf
+Fecha de descarga: 19/10/2026
+Uso: comparación 2020 vs. 2024 (contexto de pandemia).
+
+--------------------------------------------------
+C. POBREZA E INDIGENCIA – EPH (INDEC)
+--------------------------------------------------
+Cobertura: 31 aglomerados urbanos (mismos aglomerados que la EPH TIC).
+
+Archivo: indec_pobreza_eph_2s2024.pdf   [PARA EL CRUCE CON TIC]
+Ubicación: datos\documentacion\informes_indec\
+Publicación: Informes técnicos Vol. 9, n° 75. Segundo semestre de 2024.
+URL: https://www.indec.gob.ar/uploads/informesdeprensa/eph_pobreza_03_252282AE14D2.pdf
+Fecha de descarga: 19/10/2026
+Cuadro a usar: 4.1 - Pobreza e indigencia por regiones y 31 aglomerados urbanos (%)
+Notas: valores marcados con (1) tienen coeficiente de variación > 16% (menor precisión).
+
+Archivo: indec_pobreza_eph_2s2025.pdf   [CONTEXTO ACTUAL]
+Ubicación: datos\documentacion\informes_indec\
+Publicación: Informes técnicos Vol. 10, n° 7. Segundo semestre de 2025.
+URL: https://www.indec.gob.ar/uploads/informesdeprensa/eph_pobreza_03_269225CA3217.pdf
+Fecha de descarga: 19/10/2026
+
+--------------------------------------------------
+D. ACCESOS A INTERNET – ENCUESTA A PROVEEDORES (INDEC)
+--------------------------------------------------
+Encuesta a empresas proveedoras (similar a ENACOM). Uso: contexto, no tabla principal.
+
+Archivo: indec_acceso_internet_4t2025.pdf
+Ubicación: datos\documentacion\informes_indec\
+Publicación: Informes técnicos Vol. 10, n° 57. Cuarto trimestre de 2025.
+URL: https://www.indec.gob.ar/uploads/informesdeprensa/internet_03_26A03E19421E.pdf
+Fecha de descarga: 19/10/2026
+Dato clave: 8.516.515 accesos fijos y 40.419.638 accesos móviles (4T 2025).
+
+Archivo: indec_acceso_internet_4t2024.pdf
+Ubicación: datos\documentacion\informes_indec\
+Publicación: Informes técnicos Vol. 9, n° 53. Cuarto trimestre de 2024.
+URL: https://www.indec.gob.ar/uploads/informesdeprensa/internet_03_25942E5816CC.pdf
+Fecha de descarga: 19/10/2026
+Limitación: agrupa "Buenos Aires y CABA" en una sola jurisdicción.
+
+--------------------------------------------------
+E. COSTO – ÍNDICE DE PRECIOS AL CONSUMIDOR (INDEC)
+--------------------------------------------------
+Archivo: indec_ipc_divisiones.csv
+Ubicación: datos\social\
+Fuente: INDEC – IPC, serie por divisiones COICOP y regiones
+URL: https://www.indec.gob.ar/ftp/cuadros/economia/serie_ipc_divisiones.csv
+Fecha de descarga: 19/10/2026
+Período: diciembre 2016 – septiembre 2026 (mensual). Base: diciembre 2016 = 100.
+Regiones: Nacional, GBA, Pampeana, Noreste, Noroeste, Cuyo, Patagonia.
+Códigos a usar: 0 = Nivel general / 08 = Comunicación.
+Formato: separador ";", codificación Windows-1252, coma decimal, "NA" = sin dato.
+Dato clave: dic-2024 interanual: Comunicación 186,4% vs. Nivel general 117,8%.
+
+==================================================
+DECISIONES METODOLÓGICAS
+==================================================
+
+- Solo se usan fuentes oficiales: organismos del Estado argentino (ENACOM, INDEC, IGN)
+  y organismos internacionales (UIT, Banco Mundial).
+- Para comparar niveles se usa "accesos cada 100 habitantes" (mismo indicador en UIT
+  y ENACOM).
+- Las velocidades se comparan solo entre provincias (datos de ENACOM).
+- Los totales nacionales de ENACOM se toman del dato oficial, no del promedio de
+  provincias.
+- Censo 2022: se usan cuadros de POBLACIÓN (personas), no de HOGARES, porque solo esos
+  están por provincia e incluyen computadora/tablet.
+- No se descargan "Región Metropolitana Buenos Aires" ni "Gobiernos locales" para
+  evitar contar dos veces a la misma población.
+- EPH TIC y pobreza se publican por aglomerado urbano (31), no por provincia. No se
+  convierten a provincias: se analizan por aglomerado y región.
+- Para cruzar pobreza y uso de TIC se usan períodos coincidentes: EPH TIC 4º trim.
+  2024 y pobreza 2º sem. 2024. El 2º sem. 2025 se usa solo como contexto actual.
+- Los valores de pobreza con coeficiente de variación > 16% se marcan como de
+  menor precisión.
+- ENACOM (accesos declarados por empresas) y Censo (personas en viviendas con
+  internet, declarado por los hogares) miden cosas distintas: se presentan como
+  miradas complementarias, no en el mismo gráfico.
+- El IPC mide variación de precios, no costo absoluto. El costo relativo al ingreso
+  se toma de la UIT (% del INB per cápita).
+- Los informes en PDF se guardan en documentacion\; los cuadros que se usan se
+  transcriben a tablas en social\ para cargarlos en Power BI.
+
+==================================================
+AGREGADOS 02/11/2026: SATÉLITE (STARLINK), TÉRMINOS Y NOTAS
+==================================================
+
+Documento: Resoluciones ENACOM 1/2024, 2/2024, 3/2024 y 4/2024
+Fuente: Boletín Oficial de la República Argentina, 26/02/2024 (fuente oficial)
+Contenido: autoriza a prestar internet satelital a Tibro Netherlands BV Sucursal
+  Argentina (Res. 1/2024; licencia transferida a Starlink Argentina SRL por
+  Res. 4/2024), OneWeb (Res. 2/2024) y Amazon Kuiper (Res. 3/2024).
+Consultado a través de: Marval O'Farrell Mairal –
+  https://www.marval.com/Publicacion/el-enacom-autoriza-a-las-empresas-starlink-amazon-y-oneweb-a-brindar-internet-via-satelite-en-la-argentina-15784
+Pendiente: guardar el enlace directo del Boletín Oficial.
+Nota 05/11/2026: la fecha 26/02/2024 está confirmada para las Res. 1, 2 y 3/2024;
+  la de la Res. 4/2024 (transferencia a Starlink Argentina SRL) no figura en la
+  fuente consultada: verificar en boletinoficial.gob.ar.
+Cita para el tablero: Boletín Oficial, 26/02/2024 · Res. ENACOM 1/2024 y
+  4/2024 (Starlink).
+Uso: marca de fecha en el gráfico de la página 4 (crecimiento del satélite).
+
+Datos: accesos fijos por tecnología, columna "Otros"
+Archivo: argentina\enacom_tecnologias_provincias.csv (ya registrado)
+Nota: se interpreta "Otros" como principalmente internet satelital porque crece x5
+  desde la autorización de Starlink (2023 T4: 194.796 -> 2026 T2: 965.634).
+Pendiente: confirmar con la metodología de ENACOM qué tecnologías incluye "Otros".
+
+Contexto periodístico (NO oficial, solo para contexto, no se grafica):
+- DPL News, 16/10/2026: ~800.000 accesos satelitales, +300 % interanual (cita a
+  ENACOM) – https://dplnews.com/?p=333909
+- MercoPress, 27/07/2026: acuerdo ENACOM–Starlink para 6.000 escuelas rurales –
+  https://en.mercopress.com/2026/07/27/milei-announces-starlink-deal-to-bring-satellite-internet-to-6-000-rural-schools
+- Mercado, 2026: precios de Starlink (abono residencial desde $38.000/mes, equipo
+  desde $299.000) – https://mercado.com.ar/informes-especiales/internet-crece-pero-mas-lento-el-mapa-que-relativiza-el-efecto-starlink
+
+Decisión de términos:
+- No se usa la palabra "penetración". Se usa "accesos fijos cada 100 hogares" /
+  "acceso a internet fijo" (como nombra ENACOM sus columnas).
+- Tablas en Power BI: fact_Penetracion -> fact_Accesos;
+  fact_PenetracionNacional -> fact_AccesosNacional. Los archivos CSV conservan su
+  nombre original para no romper las consultas de Power Query.
+
+Nota metodológica (2022):
+- En 2022 T2 "accesos cada 100 hogares" baja (73,88 -> 68,78) mientras "cada 100
+  habitantes" sube (23,05 -> 23,72): cambió la cantidad de hogares del
+  denominador, no la cantidad de conexiones. Se muestran ambas medidas.
+
+Uso de los datos mundiales en el tablero:
+- Página 1: Banco Mundial – usuarios de internet (Argentina 89,7 %, América
+  Latina 81,7 %, Mundo 71,2 %, 2024) y banda ancha fija cada 100 habitantes
+  (26,1 / 19,4 / 19,3).
+- Página 8: UIT – precio de la banda ancha fija como % del ingreso (Argentina
+  2018–2025 y comparación con países vecinos, 2025).
+
+==================================================
+AGREGADOS 03/11/2026: POLOS TECNOLÓGICOS Y PANDEMIA
+==================================================
+Polos tecnológicos (hallazgo 7.13) – CONTEXTO, no se grafica.
+
+Oficiales:
+- Presidencia de la Nación – "Tierra del Fuego será un polo tecnológico de
+  programación para Argentina y el mundo" –
+  https://www.argentina.gob.ar/noticias/tierra-del-fuego-sera-un-polo-tecnologico-de-programacion-para-argentina-y-el-mundo
+- Legislatura de Tierra del Fuego – modificación de la Ley provincial 1279
+  (Promoción de la Industria del Software), leyes sancionadas 2021 –
+  https://legistdf.gob.ar/lp/indiceleyes/
+- Gobierno de Tierra del Fuego – Resolución N.º 194/22, Programa de Promoción
+  de Empleo para la Economía del Conocimiento –
+  https://www.tierradelfuego.gob.ar/wp-content/uploads/2022/04/Resolucion-N°-194-22-Programa-de-Promocion-de-Empleo-para-la-EC-1.pdf
+
+NO oficiales (prensa / académicos):
+- Misiones Online, 14/08/2020: la Legislatura creó el centro regional de
+  innovación Silicon Misiones –
+  https://misionesonline.net/2020/08/14/legislatura-creo-silicon-misiones/
+- Misiones Online, 24/10/2020: polo tecnológico Silicon Misiones –
+  https://misionesonline.net/2020/10/24/polo-tecnologico-silicon-misiones/
+- Infonegocios: WiFi gratuito provincial en San Luis –
+  https://infonegocios.info/plus/despues-del-wifi-gratuito-ahora-san-luis-va-por-la-telefonia-gratuita
+- Datacentermap: Autopista de la Información (AUI), San Luis –
+  https://www.datacentermap.com/c/autopista-de-la-informacin-aui/
+- Tesis UNCuyo (Maldonado, Palacios, Oro): políticas públicas digitales en
+  San Luis – https://librosffyl.bdigital.uncu.edu.ar/objetos_digitales/9550/maldonado-palacios-oro.pdf
+Pendiente: número de ley de Silicon Misiones (Digesto de Misiones) y norma
+oficial de creación de la AUI (Boletín Oficial de San Luis).
+
+Pandemia (hallazgo 7.14):
+- Cálculo propio con ENACOM – accesos por tecnología por provincia, columna
+  Total (enacom_tecnologias_provincias.csv), 4.º trimestre 2017/2019/2021/2023.
+- Se usa la cantidad de accesos (no cada 100 hogares) para evitar el cambio
+  de denominador de 2022.

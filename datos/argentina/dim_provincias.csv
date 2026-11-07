@@ -1,0 +1,25 @@
+﻿CodigoINDEC,ISO,Provincia,NombreGeoref,NombreENACOM,ClaveArchivo,Region
+02,AR-C,CABA,Ciudad Autónoma de Buenos Aires,CABA,caba,Pampeana
+06,AR-B,Buenos Aires,Buenos Aires,Buenos Aires,buenosaires,Pampeana
+10,AR-K,Catamarca,Catamarca,Catamarca,catamarca,NOA
+14,AR-X,Córdoba,Córdoba,Córdoba,cordoba,Pampeana
+18,AR-W,Corrientes,Corrientes,Corrientes,corrientes,NEA
+22,AR-H,Chaco,Chaco,Chaco,chaco,NEA
+26,AR-U,Chubut,Chubut,Chubut,chubut,Patagonia
+30,AR-E,Entre Ríos,Entre Ríos,Entre Ríos,entrerios,Pampeana
+34,AR-P,Formosa,Formosa,Formosa,formosa,NEA
+38,AR-Y,Jujuy,Jujuy,Jujuy,jujuy,NOA
+42,AR-L,La Pampa,La Pampa,La Pampa,lapampa,Pampeana
+46,AR-F,La Rioja,La Rioja,La Rioja,larioja,NOA
+50,AR-M,Mendoza,Mendoza,Mendoza,mendoza,Cuyo
+54,AR-N,Misiones,Misiones,Misiones,misiones,NEA
+58,AR-Q,Neuquén,Neuquén,Neuquén,neuquen,Patagonia
+62,AR-R,Río Negro,Río Negro,Río Negro,rionegro,Patagonia
+66,AR-A,Salta,Salta,Salta,salta,NOA
+70,AR-J,San Juan,San Juan,San Juan,sanjuan,Cuyo
+74,AR-D,San Luis,San Luis,San Luis,sanluis,Cuyo
+78,AR-Z,Santa Cruz,Santa Cruz,Santa Cruz,santacruz,Patagonia
+82,AR-S,Santa Fe,Santa Fe,Santa Fe,santafe,Pampeana
+86,AR-G,Santiago del Estero,Santiago del Estero,Santiago Del Estero,santiagodelestero,NOA
+90,AR-T,Tucumán,Tucumán,Tucumán,tucuman,NOA
+94,AR-V,Tierra del Fuego,"Tierra del Fuego, Antártida e Islas del Atlántico Sur",Tierra Del Fuego,tierradelfuego,Patagonia

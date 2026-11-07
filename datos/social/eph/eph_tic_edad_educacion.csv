@@ -1,0 +1,361 @@
+﻿Anio;GrupoEdad;NivelEducativo;Bien;Pct_Si;Pct_No;Pct_NsNr
+2024;Total;Total;Internet;89,7;10,2;0,1
+2024;Total;Total;Computadora;37,1;62,7;0,2
+2024;Total;Total;Celular;90,5;9,4;0,1
+2024;Total;Primaria incompleta;Internet;78,9;21,0;0,1
+2024;Total;Primaria incompleta;Computadora;25,5;74,4;0,1
+2024;Total;Primaria incompleta;Celular;69,8;30,1;0,1
+2024;Total;Primaria completa;Internet;78,6;21,2;0,2
+2024;Total;Primaria completa;Computadora;6,8;93,0;0,1
+2024;Total;Primaria completa;Celular;90,7;9,2;0,1
+2024;Total;Secundaria incompleta;Internet;92,8;7,1;0,1
+2024;Total;Secundaria incompleta;Computadora;32,7;67,2;0,1
+2024;Total;Secundaria incompleta;Celular;94,8;5,1;0,1
+2024;Total;Secundaria completa;Internet;93,3;6,5;0,2
+2024;Total;Secundaria completa;Computadora;31,2;68,6;0,3
+2024;Total;Secundaria completa;Celular;97,3;2,6;0,1
+2024;Total;Superior y universitaria incompleta;Internet;98,0;1,9;0,1
+2024;Total;Superior y universitaria incompleta;Computadora;63,1;36,7;0,2
+2024;Total;Superior y universitaria incompleta;Celular;99,0;0,8;0,2
+2024;Total;Superior y universitaria completa;Internet;97,7;2,3;0,0
+2024;Total;Superior y universitaria completa;Computadora;66,9;33,1;0,0
+2024;Total;Superior y universitaria completa;Celular;99,1;0,9;0,0
+2024;Total;Sin instrucción;Internet;60,6;39,2;0,2
+2024;Total;Sin instrucción;Computadora;10,3;89,5;0,2
+2024;Total;Sin instrucción;Celular;43,1;56,7;0,2
+2024;4 a 17 años;Total;Internet;84,6;15,2;0,1
+2024;4 a 17 años;Total;Computadora;35,9;63,9;0,2
+2024;4 a 17 años;Total;Celular;74,3;25,6;0,1
+2024;4 a 17 años;Primaria incompleta;Internet;81,7;18,1;0,2
+2024;4 a 17 años;Primaria incompleta;Computadora;31,2;68,7;0,2
+2024;4 a 17 años;Primaria incompleta;Celular;67,2;32,7;0,1
+2024;4 a 17 años;Primaria completa;Internet;94,6;5,4;0,0
+2024;4 a 17 años;Primaria completa;Computadora;24,0;76,0;0,0
+2024;4 a 17 años;Primaria completa;Celular;94,6;5,4;0,0
+2024;4 a 17 años;Secundaria incompleta;Internet;95,8;4,1;0,1
+2024;4 a 17 años;Secundaria incompleta;Computadora;51,0;48,8;0,1
+2024;4 a 17 años;Secundaria incompleta;Celular;94,9;5,0;0,1
+2024;4 a 17 años;Secundaria completa;Internet;89,5;10,5;0,0
+2024;4 a 17 años;Secundaria completa;Computadora;36,5;63,5;0,0
+2024;4 a 17 años;Secundaria completa;Celular;89,5;10,5;0,0
+2024;4 a 17 años;Superior y universitaria incompleta;Internet;100,0;0,0;0,0
+2024;4 a 17 años;Superior y universitaria incompleta;Computadora;95,9;4,1;0,0
+2024;4 a 17 años;Superior y universitaria incompleta;Celular;100,0;0,0;0,0
+2024;4 a 17 años;Superior y universitaria completa;Internet;0,0;0,0;0,0
+2024;4 a 17 años;Superior y universitaria completa;Computadora;0,0;0,0;0,0
+2024;4 a 17 años;Superior y universitaria completa;Celular;0,0;0,0;0,0
+2024;4 a 17 años;Sin instrucción;Internet;63,6;36,2;0,2
+2024;4 a 17 años;Sin instrucción;Computadora;11,0;88,8;0,2
+2024;4 a 17 años;Sin instrucción;Celular;41,6;58,2;0,2
+2024;18 a 29 años;Total;Internet;96,5;3,4;0,1
+2024;18 a 29 años;Total;Computadora;45,8;54,0;0,2
+2024;18 a 29 años;Total;Celular;97,8;2,1;0,1
+2024;18 a 29 años;Primaria incompleta;Internet;80,3;19,7;0,0
+2024;18 a 29 años;Primaria incompleta;Computadora;9,0;91,0;0,0
+2024;18 a 29 años;Primaria incompleta;Celular;76,3;23,7;0,0
+2024;18 a 29 años;Primaria completa;Internet;84,3;15,7;0,0
+2024;18 a 29 años;Primaria completa;Computadora;6,0;94,0;0,0
+2024;18 a 29 años;Primaria completa;Celular;93,9;6,1;0,0
+2024;18 a 29 años;Secundaria incompleta;Internet;94,8;5,2;0,0
+2024;18 a 29 años;Secundaria incompleta;Computadora;24,2;75,7;0,0
+2024;18 a 29 años;Secundaria incompleta;Celular;96,3;3,7;0,0
+2024;18 a 29 años;Secundaria completa;Internet;97,1;2,9;0,0
+2024;18 a 29 años;Secundaria completa;Computadora;31,7;68,2;0,1
+2024;18 a 29 años;Secundaria completa;Celular;98,8;1,2;0,0
+2024;18 a 29 años;Superior y universitaria incompleta;Internet;98,8;1,0;0,2
+2024;18 a 29 años;Superior y universitaria incompleta;Computadora;71,6;28,0;0,4
+2024;18 a 29 años;Superior y universitaria incompleta;Celular;99,3;0,3;0,4
+2024;18 a 29 años;Superior y universitaria completa;Internet;98,8;1,2;0,0
+2024;18 a 29 años;Superior y universitaria completa;Computadora;74,4;25,6;0,0
+2024;18 a 29 años;Superior y universitaria completa;Celular;99,9;0,1;0,0
+2024;18 a 29 años;Sin instrucción;Internet;45,6;54,4;0,0
+2024;18 a 29 años;Sin instrucción;Computadora;3,4;96,6;0,0
+2024;18 a 29 años;Sin instrucción;Celular;43,0;57,0;0,0
+2024;30 a 64 años;Total;Internet;94,1;5,8;0,1
+2024;30 a 64 años;Total;Computadora;39,8;60,0;0,1
+2024;30 a 64 años;Total;Celular;97,8;2,2;0,0
+2024;30 a 64 años;Primaria incompleta;Internet;78,1;21,9;0,0
+2024;30 a 64 años;Primaria incompleta;Computadora;4,4;95,6;0,0
+2024;30 a 64 años;Primaria incompleta;Celular;86,0;14,0;0,0
+2024;30 a 64 años;Primaria completa;Internet;87,7;12,1;0,2
+2024;30 a 64 años;Primaria completa;Computadora;7,7;92,3;0,1
+2024;30 a 64 años;Primaria completa;Celular;96,3;3,6;0,1
+2024;30 a 64 años;Secundaria incompleta;Internet;91,7;8,2;0,1
+2024;30 a 64 años;Secundaria incompleta;Computadora;17,4;82,4;0,1
+2024;30 a 64 años;Secundaria incompleta;Celular;96,2;3,7;0,1
+2024;30 a 64 años;Secundaria completa;Internet;94,5;5,2;0,3
+2024;30 a 64 años;Secundaria completa;Computadora;33,4;66,3;0,3
+2024;30 a 64 años;Secundaria completa;Celular;98,7;1,3;0,0
+2024;30 a 64 años;Superior y universitaria incompleta;Internet;98,1;1,9;0,0
+2024;30 a 64 años;Superior y universitaria incompleta;Computadora;58,2;41,7;0,1
+2024;30 a 64 años;Superior y universitaria incompleta;Celular;99,1;0,9;0,0
+2024;30 a 64 años;Superior y universitaria completa;Internet;98,7;1,3;0,0
+2024;30 a 64 años;Superior y universitaria completa;Computadora;71,4;28,6;0,0
+2024;30 a 64 años;Superior y universitaria completa;Celular;99,7;0,3;0,0
+2024;30 a 64 años;Sin instrucción;Internet;64,3;35,7;0,0
+2024;30 a 64 años;Sin instrucción;Computadora;15,8;84,2;0,0
+2024;30 a 64 años;Sin instrucción;Celular;64,8;35,2;0,0
+2024;65 años y más;Total;Internet;74,2;25,7;0,1
+2024;65 años y más;Total;Computadora;17,8;82,1;0,1
+2024;65 años y más;Total;Celular;85,1;14,7;0,1
+2024;65 años y más;Primaria incompleta;Internet;55,7;44,3;0,0
+2024;65 años y más;Primaria incompleta;Computadora;4,0;96,0;0,0
+2024;65 años y más;Primaria incompleta;Celular;72,5;27,5;0,0
+2024;65 años y más;Primaria completa;Internet;62,9;36,9;0,3
+2024;65 años y más;Primaria completa;Computadora;5,3;94,4;0,3
+2024;65 años y más;Primaria completa;Celular;81,2;18,6;0,3
+2024;65 años y más;Secundaria incompleta;Internet;73,9;26,1;0,0
+2024;65 años y más;Secundaria incompleta;Computadora;12,8;87,2;0,0
+2024;65 años y más;Secundaria incompleta;Celular;83,8;16,2;0,0
+2024;65 años y más;Secundaria completa;Internet;80,5;19,3;0,3
+2024;65 años y más;Secundaria completa;Computadora;20,0;79,7;0,3
+2024;65 años y más;Secundaria completa;Celular;88,1;11,6;0,3
+2024;65 años y más;Superior y universitaria incompleta;Internet;91,9;8,1;0,0
+2024;65 años y más;Superior y universitaria incompleta;Computadora;30,7;69,1;0,2
+2024;65 años y más;Superior y universitaria incompleta;Celular;96,2;3,8;0,0
+2024;65 años y más;Superior y universitaria completa;Internet;92,7;7,3;0,0
+2024;65 años y más;Superior y universitaria completa;Computadora;40,9;59,1;0,0
+2024;65 años y más;Superior y universitaria completa;Celular;95,9;4,1;0,0
+2024;65 años y más;Sin instrucción;Internet;26,0;74,0;0,0
+2024;65 años y más;Sin instrucción;Computadora;0,2;99,8;0,0
+2024;65 años y más;Sin instrucción;Celular;44,6;55,4;0,0
+2023;Total;Total;Internet;89,2;10,6;0,2
+2023;Total;Total;Computadora;37,4;62,4;0,2
+2023;Total;Total;Celular;89,5;10,4;0,1
+2023;Total;Primaria incompleta;Internet;80,5;19,3;0,3
+2023;Total;Primaria incompleta;Computadora;27,5;72,2;0,3
+2023;Total;Primaria incompleta;Celular;66,6;33,3;0,1
+2023;Total;Primaria completa;Internet;76,1;23,8;0,1
+2023;Total;Primaria completa;Computadora;8,0;91,9;0,1
+2023;Total;Primaria completa;Celular;86,4;13,4;0,2
+2023;Total;Secundaria incompleta;Internet;93,2;6,9;0,0
+2023;Total;Secundaria incompleta;Computadora;32,8;66,9;0,3
+2023;Total;Secundaria incompleta;Celular;95,6;4,4;0,0
+2023;Total;Secundaria completa;Internet;92,7;7,1;0,2
+2023;Total;Secundaria completa;Computadora;31,7;68,2;0,1
+2023;Total;Secundaria completa;Celular;97,5;2,4;0,1
+2023;Total;Superior y universitaria incompleta;Internet;97,7;2,3;0,0
+2023;Total;Superior y universitaria incompleta;Computadora;65,7;34,2;0,1
+2023;Total;Superior y universitaria incompleta;Celular;99,4;0,6;0,0
+2023;Total;Superior y universitaria completa;Internet;97,2;2,8;0,1
+2023;Total;Superior y universitaria completa;Computadora;65,7;34,2;0,1
+2023;Total;Superior y universitaria completa;Celular;99,0;0,9;0,1
+2023;Total;Sin instrucción;Internet;62,2;36,9;1,0
+2023;Total;Sin instrucción;Computadora;12,3;86,5;1,3
+2023;Total;Sin instrucción;Celular;40,9;58,4;0,8
+2023;4 a 17 años;Total;Internet;89,2;10,6;0,2
+2023;4 a 17 años;Total;Computadora;37,4;62,4;0,2
+2023;4 a 17 años;Total;Celular;89,5;10,4;0,1
+2023;4 a 17 años;Primaria incompleta;Internet;85,1;14,6;0,3
+2023;4 a 17 años;Primaria incompleta;Computadora;33,1;66,7;0,3
+2023;4 a 17 años;Primaria incompleta;Celular;64,7;35,2;0,1
+2023;4 a 17 años;Primaria completa;Internet;63,8;36,2;0,0
+2023;4 a 17 años;Primaria completa;Computadora;36,3;63,7;0,0
+2023;4 a 17 años;Primaria completa;Celular;63,8;36,2;0,0
+2023;4 a 17 años;Secundaria incompleta;Internet;96,4;3,6;0,0
+2023;4 a 17 años;Secundaria incompleta;Computadora;51,9;47,9;0,2
+2023;4 a 17 años;Secundaria incompleta;Celular;96,3;3,6;0,1
+2023;4 a 17 años;Secundaria completa;Internet;100,0;0,0;0,0
+2023;4 a 17 años;Secundaria completa;Computadora;53,6;46,4;0,0
+2023;4 a 17 años;Secundaria completa;Celular;100,0;0,0;0,0
+2023;4 a 17 años;Superior y universitaria incompleta;Internet;100,0;0,0;0,0
+2023;4 a 17 años;Superior y universitaria incompleta;Computadora;54,9;45,1;0,0
+2023;4 a 17 años;Superior y universitaria incompleta;Celular;100,0;0,0;0,0
+2023;4 a 17 años;Superior y universitaria completa;Internet;0,0;0,0;0,0
+2023;4 a 17 años;Superior y universitaria completa;Computadora;0,0;0,0;0,0
+2023;4 a 17 años;Superior y universitaria completa;Celular;0,0;0,0;0,0
+2023;4 a 17 años;Sin instrucción;Internet;65,4;33,5;1,1
+2023;4 a 17 años;Sin instrucción;Computadora;13,2;85,7;1,2
+2023;4 a 17 años;Sin instrucción;Celular;40,4;58,8;0,8
+2023;18 a 29 años;Total;Internet;96,7;3,2;0,1
+2023;18 a 29 años;Total;Computadora;46,8;52,9;0,3
+2023;18 a 29 años;Total;Celular;98,0;1,9;0,1
+2023;18 a 29 años;Primaria incompleta;Internet;79,2;20,8;0,0
+2023;18 a 29 años;Primaria incompleta;Computadora;22,3;77,8;0,0
+2023;18 a 29 años;Primaria incompleta;Celular;79,7;20,4;0,0
+2023;18 a 29 años;Primaria completa;Internet;92,7;6,1;1,2
+2023;18 a 29 años;Primaria completa;Computadora;12,6;86,2;1,2
+2023;18 a 29 años;Primaria completa;Celular;93,8;5,0;1,2
+2023;18 a 29 años;Secundaria incompleta;Internet;95,3;4,7;0,0
+2023;18 a 29 años;Secundaria incompleta;Computadora;26,0;73,3;0,8
+2023;18 a 29 años;Secundaria incompleta;Celular;96,4;3,6;0,0
+2023;18 a 29 años;Secundaria completa;Internet;96,5;3,2;0,2
+2023;18 a 29 años;Secundaria completa;Computadora;33,7;66,3;0,0
+2023;18 a 29 años;Secundaria completa;Celular;99,0;1,0;0,0
+2023;18 a 29 años;Superior y universitaria incompleta;Internet;98,7;1,3;0,0
+2023;18 a 29 años;Superior y universitaria incompleta;Computadora;73,0;26,9;0,1
+2023;18 a 29 años;Superior y universitaria incompleta;Celular;99,7;0,3;0,0
+2023;18 a 29 años;Superior y universitaria completa;Internet;99,5;0,5;0,0
+2023;18 a 29 años;Superior y universitaria completa;Computadora;67,1;32,9;0,0
+2023;18 a 29 años;Superior y universitaria completa;Celular;99,9;0,0;0,2
+2023;18 a 29 años;Sin instrucción;Internet;59,2;40,8;0,0
+2023;18 a 29 años;Sin instrucción;Computadora;0,0;100,0;0,0
+2023;18 a 29 años;Sin instrucción;Celular;14,6;85,4;0,0
+2023;30 a 64 años;Total;Internet;93,2;6,7;0,1
+2023;30 a 64 años;Total;Computadora;39,5;60,4;0,1
+2023;30 a 64 años;Total;Celular;97,5;2,5;0,1
+2023;30 a 64 años;Primaria incompleta;Internet;72,8;26,6;0,6
+2023;30 a 64 años;Primaria incompleta;Computadora;7,1;92,3;0,6
+2023;30 a 64 años;Primaria incompleta;Celular;84,5;15,5;0,0
+2023;30 a 64 años;Primaria completa;Internet;85,6;14,5;0,0
+2023;30 a 64 años;Primaria completa;Computadora;9,2;90,8;0,0
+2023;30 a 64 años;Primaria completa;Celular;93,9;6,0;0,2
+2023;30 a 64 años;Secundaria incompleta;Internet;92,5;7,5;0,0
+2023;30 a 64 años;Secundaria incompleta;Computadora;19,8;80,2;0,0
+2023;30 a 64 años;Secundaria incompleta;Celular;96,6;3,4;0,0
+2023;30 a 64 años;Secundaria completa;Internet;93,6;6,2;0,2
+2023;30 a 64 años;Secundaria completa;Computadora;32,9;67,0;0,1
+2023;30 a 64 años;Secundaria completa;Celular;98,7;1,2;0,1
+2023;30 a 64 años;Superior y universitaria incompleta;Internet;97,7;2,2;0,1
+2023;30 a 64 años;Superior y universitaria incompleta;Computadora;62,3;37,7;0,1
+2023;30 a 64 años;Superior y universitaria incompleta;Celular;99,5;0,5;0,1
+2023;30 a 64 años;Superior y universitaria completa;Internet;98,3;1,6;0,1
+2023;30 a 64 años;Superior y universitaria completa;Computadora;69,5;30,4;0,2
+2023;30 a 64 años;Superior y universitaria completa;Celular;99,7;0,2;0,1
+2023;30 a 64 años;Sin instrucción;Internet;54,4;45,6;0,0
+2023;30 a 64 años;Sin instrucción;Computadora;14,0;86,0;0,0
+2023;30 a 64 años;Sin instrucción;Celular;63,0;37,0;0,0
+2023;65 años y más;Total;Internet;69,9;30,0;0,1
+2023;65 años y más;Total;Computadora;17,1;82,9;0,1
+2023;65 años y más;Total;Celular;81,0;19,0;0,0
+2023;65 años y más;Primaria incompleta;Internet;49,6;50,4;0,0
+2023;65 años y más;Primaria incompleta;Computadora;2,5;97,5;0,0
+2023;65 años y más;Primaria incompleta;Celular;62,5;37,6;0,0
+2023;65 años y más;Primaria completa;Internet;58,0;42,0;0,0
+2023;65 años y más;Primaria completa;Computadora;5,2;94,8;0,0
+2023;65 años y más;Primaria completa;Celular;73,4;26,6;0,0
+2023;65 años y más;Secundaria incompleta;Internet;72,9;27,1;0,0
+2023;65 años y más;Secundaria incompleta;Computadora;11,7;88,3;0,0
+2023;65 años y más;Secundaria incompleta;Celular;84,3;15,7;0,0
+2023;65 años y más;Secundaria completa;Internet;79,8;20,0;0,2
+2023;65 años y más;Secundaria completa;Computadora;21,3;78,7;0,0
+2023;65 años y más;Secundaria completa;Celular;88,9;11,0;0,1
+2023;65 años y más;Superior y universitaria incompleta;Internet;89,9;10,1;0,0
+2023;65 años y más;Superior y universitaria incompleta;Computadora;30,5;69,5;0,0
+2023;65 años y más;Superior y universitaria incompleta;Celular;95,7;4,4;0,0
+2023;65 años y más;Superior y universitaria completa;Internet;89,1;10,9;0,0
+2023;65 años y más;Superior y universitaria completa;Computadora;44,3;55,8;0,0
+2023;65 años y más;Superior y universitaria completa;Celular;94,6;5,4;0,0
+2023;65 años y más;Sin instrucción;Internet;20,3;79,5;0,3
+2023;65 años y más;Sin instrucción;Computadora;0,0;96,5;3,5
+2023;65 años y más;Sin instrucción;Celular;36,7;63,1;0,3
+2020;Total;Total;Internet;85,5;14,4;0,1
+2020;Total;Total;Computadora;40,9;58,9;0,2
+2020;Total;Total;Celular;87,9;12,0;0,1
+2020;Total;Primaria incompleta;Internet;78,3;21,6;0,1
+2020;Total;Primaria incompleta;Computadora;34,7;65,2;0,1
+2020;Total;Primaria incompleta;Celular;69,1;30,8;0,1
+2020;Total;Primaria completa;Internet;64,7;35,0;0,4
+2020;Total;Primaria completa;Computadora;9,1;90,4;0,4
+2020;Total;Primaria completa;Celular;81,4;18,3;0,3
+2020;Total;Secundaria incompleta;Internet;89,4;10,5;0,1
+2020;Total;Secundaria incompleta;Computadora;35,0;64,9;0,1
+2020;Total;Secundaria incompleta;Celular;93,6;6,3;0,1
+2020;Total;Secundaria completa;Internet;89,1;10,7;0,2
+2020;Total;Secundaria completa;Computadora;36,6;63,1;0,4
+2020;Total;Secundaria completa;Celular;95,2;4,7;0,1
+2020;Total;Superior y universitaria incompleta;Internet;97,7;2,3;0,0
+2020;Total;Superior y universitaria incompleta;Computadora;70,1;29,9;0,0
+2020;Total;Superior y universitaria incompleta;Celular;98,8;1,2;0,0
+2020;Total;Superior y universitaria completa;Internet;96,8;3,1;0,2
+2020;Total;Superior y universitaria completa;Computadora;71,9;27,9;0,2
+2020;Total;Superior y universitaria completa;Celular;98,4;1,4;0,2
+2020;Total;Sin instrucción;Internet;64,1;35,9;0,0
+2020;Total;Sin instrucción;Computadora;23,5;76,5;0,0
+2020;Total;Sin instrucción;Celular;46,3;53,7;0,0
+2020;4 a 17 años;Total;Internet;87,4;12,5;0,1
+2020;4 a 17 años;Total;Computadora;44,8;55,2;0,1
+2020;4 a 17 años;Total;Celular;74,0;26,0;0,1
+2020;4 a 17 años;Primaria incompleta;Internet;87,7;12,1;0,2
+2020;4 a 17 años;Primaria incompleta;Computadora;44,2;55,6;0,2
+2020;4 a 17 años;Primaria incompleta;Celular;68,5;31,3;0,2
+2020;4 a 17 años;Primaria completa;Internet;73,4;26,6;0,0
+2020;4 a 17 años;Primaria completa;Computadora;16,1;83,9;0,0
+2020;4 a 17 años;Primaria completa;Celular;81,7;18,3;0,0
+2020;4 a 17 años;Secundaria incompleta;Internet;95,5;4,5;0,0
+2020;4 a 17 años;Secundaria incompleta;Computadora;53,6;46,4;0,0
+2020;4 a 17 años;Secundaria incompleta;Celular;93,3;6,7;0,0
+2020;4 a 17 años;Secundaria completa;Internet;81,7;18,3;0,0
+2020;4 a 17 años;Secundaria completa;Computadora;32,8;67,2;0,0
+2020;4 a 17 años;Secundaria completa;Celular;100,0;0,0;0,0
+2020;4 a 17 años;Superior y universitaria incompleta;Internet;100,0;0,0;0,0
+2020;4 a 17 años;Superior y universitaria incompleta;Computadora;62,6;37,4;0,0
+2020;4 a 17 años;Superior y universitaria incompleta;Celular;100,0;0,0;0,0
+2020;4 a 17 años;Superior y universitaria completa;Internet;0,0;0,0;0,0
+2020;4 a 17 años;Superior y universitaria completa;Computadora;0,0;0,0;0,0
+2020;4 a 17 años;Superior y universitaria completa;Celular;0,0;0,0;0,0
+2020;4 a 17 años;Sin instrucción;Internet;68,2;31,9;0,0
+2020;4 a 17 años;Sin instrucción;Computadora;26,0;74,0;0,0
+2020;4 a 17 años;Sin instrucción;Celular;44,8;55,2;0,0
+2020;18 a 29 años;Total;Internet;93,9;6,0;0,2
+2020;18 a 29 años;Total;Computadora;47,1;52,7;0,2
+2020;18 a 29 años;Total;Celular;96,6;3,2;0,2
+2020;18 a 29 años;Primaria incompleta;Internet;74,4;25,6;0,0
+2020;18 a 29 años;Primaria incompleta;Computadora;15,3;84,7;0,0
+2020;18 a 29 años;Primaria incompleta;Celular;73,2;26,8;0,0
+2020;18 a 29 años;Primaria completa;Internet;81,6;18,4;0,0
+2020;18 a 29 años;Primaria completa;Computadora;18,5;81,5;0,0
+2020;18 a 29 años;Primaria completa;Celular;91,9;8,1;0,0
+2020;18 a 29 años;Secundaria incompleta;Internet;91,6;8,1;0,3
+2020;18 a 29 años;Secundaria incompleta;Computadora;26,9;72,8;0,4
+2020;18 a 29 años;Secundaria incompleta;Celular;95,5;4,2;0,3
+2020;18 a 29 años;Secundaria completa;Internet;93,9;5,7;0,4
+2020;18 a 29 años;Secundaria completa;Computadora;38,3;61,2;0,5
+2020;18 a 29 años;Secundaria completa;Celular;97,0;2,7;0,4
+2020;18 a 29 años;Superior y universitaria incompleta;Internet;99,3;0,7;0,0
+2020;18 a 29 años;Superior y universitaria incompleta;Computadora;77,0;23,0;0,0
+2020;18 a 29 años;Superior y universitaria incompleta;Celular;99,5;0,5;0,0
+2020;18 a 29 años;Superior y universitaria completa;Internet;99,5;0,5;0,0
+2020;18 a 29 años;Superior y universitaria completa;Computadora;71,7;28,3;0,0
+2020;18 a 29 años;Superior y universitaria completa;Celular;99,6;0,4;0,0
+2020;18 a 29 años;Sin instrucción;Internet;35,9;64,1;0,0
+2020;18 a 29 años;Sin instrucción;Computadora;1,0;99,0;0,0
+2020;18 a 29 años;Sin instrucción;Celular;91,3;8,7;0,0
+2020;30 a 64 años;Total;Internet;88,4;11,5;0,1
+2020;30 a 64 años;Total;Computadora;41,5;58,3;0,2
+2020;30 a 64 años;Total;Celular;96,0;4,0;0,1
+2020;30 a 64 años;Primaria incompleta;Internet;59,9;40,1;0,0
+2020;30 a 64 años;Primaria incompleta;Computadora;7,6;92,4;0,0
+2020;30 a 64 años;Primaria incompleta;Celular;83,0;17,0;0,0
+2020;30 a 64 años;Primaria completa;Internet;75,4;24,5;0,0
+2020;30 a 64 años;Primaria completa;Computadora;10,0;89,8;0,2
+2020;30 a 64 años;Primaria completa;Celular;91,1;8,9;0,0
+2020;30 a 64 años;Secundaria incompleta;Internet;86,1;13,9;0,0
+2020;30 a 64 años;Secundaria incompleta;Computadora;22,7;77,3;0,0
+2020;30 a 64 años;Secundaria incompleta;Celular;95,4;4,6;0,0
+2020;30 a 64 años;Secundaria completa;Internet;91,4;8,5;0,1
+2020;30 a 64 años;Secundaria completa;Computadora;38,4;61,2;0,4
+2020;30 a 64 años;Secundaria completa;Celular;97,8;2,2;0,0
+2020;30 a 64 años;Superior y universitaria incompleta;Internet;97,5;2,5;0,0
+2020;30 a 64 años;Superior y universitaria incompleta;Computadora;63,8;36,2;0,0
+2020;30 a 64 años;Superior y universitaria incompleta;Celular;98,9;1,2;0,0
+2020;30 a 64 años;Superior y universitaria completa;Internet;98,2;1,6;0,2
+2020;30 a 64 años;Superior y universitaria completa;Computadora;76,2;23,5;0,2
+2020;30 a 64 años;Superior y universitaria completa;Celular;99,6;0,2;0,2
+2020;30 a 64 años;Sin instrucción;Internet;36,2;63,8;0,0
+2020;30 a 64 años;Sin instrucción;Computadora;0,6;99,4;0,0
+2020;30 a 64 años;Sin instrucción;Celular;71,1;28,9;0,0
+2020;65 años y más;Total;Internet;55,2;44,5;0,4
+2020;65 años y más;Total;Computadora;19,0;80,6;0,4
+2020;65 años y más;Total;Celular;71,0;28,7;0,4
+2020;65 años y más;Primaria incompleta;Internet;29,7;70,3;0,0
+2020;65 años y más;Primaria incompleta;Computadora;3,8;96,2;0,0
+2020;65 años y más;Primaria incompleta;Celular;51,7;48,3;0,0
+2020;65 años y más;Primaria completa;Internet;39,1;59,9;1,1
+2020;65 años y más;Primaria completa;Computadora;4,8;94,1;1,1
+2020;65 años y más;Primaria completa;Celular;59,6;39,4;1,1
+2020;65 años y más;Secundaria incompleta;Internet;54,5;45,5;0,0
+2020;65 años y más;Secundaria incompleta;Computadora;9,5;90,5;0,0
+2020;65 años y más;Secundaria incompleta;Celular;77,6;22,4;0,0
+2020;65 años y más;Secundaria completa;Internet;65,1;34,9;0,0
+2020;65 años y más;Secundaria completa;Computadora;22,7;77,3;0,0
+2020;65 años y más;Secundaria completa;Celular;77,3;22,7;0,0
+2020;65 años y más;Superior y universitaria incompleta;Internet;83,5;16,5;0,0
+2020;65 años y más;Superior y universitaria incompleta;Computadora;48,6;51,4;0,0
+2020;65 años y más;Superior y universitaria incompleta;Celular;91,1;8,9;0,0
+2020;65 años y más;Superior y universitaria completa;Internet;87,1;12,9;0,0
+2020;65 años y más;Superior y universitaria completa;Computadora;50,1;49,8;0,2
+2020;65 años y más;Superior y universitaria completa;Celular;91,7;8,3;0,0
+2020;65 años y más;Sin instrucción;Internet;13,0;87,0;0,0
+2020;65 años y más;Sin instrucción;Computadora;1,6;98,4;0,0
+2020;65 años y más;Sin instrucción;Celular;28,6;71,4;0,0

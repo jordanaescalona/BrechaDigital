@@ -1,0 +1,595 @@
+HALLAZGOS – PROYECTO BRECHA DIGITAL EN ARGENTINA
+Pregunta: ¿Dónde vive hoy la desigualdad digital en Argentina?
+Autora: Jordana Elizabeth Escalona Colivoro
+Última actualización: 02/11/2026 (v5: término "accesos fijos" en todo el texto; hallazgos 1.5, 2.1c, 7.10, 7.11, 7.12 San Luis y limitación apagones 6b; 03/11: explicación simple de 7.12, 7.13 polos tecnológicos, 7.14 pandemia, 7.15 promedio de velocidad, 7.16 fibra y Otros, 7.17 factor edad)
+
+Estado: PRELIMINAR. Datos leídos de las fuentes y del modelo de Power BI;
+falta el análisis completo (gráficos, cruces y correlaciones).
+
+==================================================
+1. NIVEL MUNDIAL / COSTO
+==================================================
+
+1.1 El costo de internet fija se disparó en 2024
+- Argentina: la banda ancha fija costó 13,8% del ingreso nacional bruto per cápita
+  en 2024, frente a ~5% en 2018-2023. En 2025 bajó a 6,71%.
+- Fuente: UIT – ITU DataHub (uit_precio_banda_ancha_pct_ingreso.csv).
+
+1.2 El IPC confirma el salto de precios
+- Variación interanual (Nacional), Comunicación vs. Nivel general:
+    dic-2024: 186,4% vs. 117,8%
+    dic-2025:  35,0% vs.  31,5%
+    sep-2026:  37,3% vs.  33,4%
+- La comunicación aumentó por encima de la inflación general en todo el período.
+- Fuente: INDEC – IPC (indec_ipc_divisiones.csv).
+
+1.3 Usuarios de internet: de casi cero a 9 de cada 10 argentinos
+- % de personas que usan internet (Argentina):
+    1992:  0,003%   |  2000:  7,04%  |  2009: 34,00%
+    2015: 68,04%    |  2020: 85,51%  |  2024: 89,67%
+- El mayor salto fue 2009-2012 (34% -> 55,8%) y otro en 2020 (pandemia:
+  79,9% en 2019 -> 85,5% en 2020).
+- Desde 2021 la curva se aplana (87,2% -> 89,7%): el ~10% restante es el
+  más difícil de incluir. [pendiente: ¿quiénes son? -> EPH por edad/educación]
+- Fuente: Banco Mundial – IT.NET.USER.ZS (fact_UsuariosInternetMundo).
+
+1.4 Banda ancha fija cada 100 habitantes (Argentina)
+- 2,50 (2001) -> 9,76 (2010) -> 26,10 (2024).
+- Contraste: casi 90% usa internet, pero hay solo ~26 conexiones fijas cada
+  100 personas -> gran parte del uso es por celular (ver 2.2: casi 5 accesos
+  móviles por cada fijo).
+- Fuente: Banco Mundial – IT.NET.BBND.P2 (fact_BandaAnchaMundo).
+- [pendiente: comparar con América Latina (LCN) y Mundo (WLD) en el tablero]
+
+
+1.5 Argentina conecta más que la región… pero paga mucho más
+- Usuarios de internet 2024: Argentina 89,7 % / América Latina 81,7 % / Mundo 71,2 %.
+- Banda ancha fija cada 100 habitantes 2024: Argentina 26,1 / América Latina 19,4 /
+  Mundo 19,3 (Uruguay 33,0, Brasil 24,1, Chile 23,7).
+- Precio de la banda ancha fija, % del ingreso per cápita (UIT, 2025):
+    Bolivia 8,0 / ARGENTINA 6,7 / Paraguay 3,8 / Brasil 2,2 / Uruguay 2,1 / Chile 1,8
+  -> Argentina paga unas 3 veces más que Brasil, Uruguay o Chile. En 2024 (13,75 %)
+     fue la más cara de la región.
+- Fuentes: Banco Mundial (IT.NET.USER.ZS, IT.NET.BBND.P2); UIT – ITU DataHub.
+
+==================================================
+2. NIVEL NACIONAL
+==================================================
+
+2.1 La velocidad nacional casi se duplicó en dos años
+- 139,15 Mbps (2024 T1) → 264,56 Mbps (2026 T2).
+- Fuente: ENACOM – velocidad media nacional.
+
+2.1b El acceso a internet fijo casi se duplicó en 12 años
+- Accesos fijos cada 100 hogares: 49,55 (2014 T1) -> 85,40 (2026 T2).
+- Accesos fijos cada 100 habitantes: 15,05 -> 29,64.
+- Única caída: 2022 T1 73,88 -> 2022 T2 68,78 (luego se recupera).
+  [explicada en 2.1c: fue un cambio en la cantidad de hogares, no una pérdida de conexiones]
+- Fuente: ENACOM – accesos fijos nacionales (fact_AccesosNacional).
+
+2.1c *** HALLAZGO NO OBVIO *** La "caída" de 2022 no fue real: cambió el denominador
+- En el mismo trimestre, una medida baja y la otra sube:
+    Período   | Accesos cada 100 hogares | Accesos cada 100 habitantes
+    2021 T4   |          73,18           |          22,81
+    2022 T1   |          73,88           |          23,05
+    2022 T2   |          68,78  (baja)   |          23,72  (sube)
+- Si se hubieran perdido conexiones, las dos medidas bajarían. Lo que cambió fue la
+  cantidad de HOGARES que usa ENACOM para el cálculo (probablemente actualizada con
+  el Censo 2022, que contó más hogares de los estimados). No se desconectó nadie.
+- Lección de método: un indicador "cada 100 hogares" depende de cuántos hogares se
+  estima que hay. Conviene mirarlo junto con "cada 100 habitantes".
+- Salto reciente (2025 T2 -> 2026 T2): cada 100 hogares 76,12 -> 85,40 y cada 100
+  habitantes 26,42 -> 29,64. Como suben las dos, parece crecimiento real de
+  conexiones. Por provincia, gran parte del salto viene de la tecnología "Otros"
+  (internet satelital, ver 7.11): en Formosa explica el 72 % de los accesos nuevos.
+- Fuente: ENACOM – accesos fijos nacionales (fact_AccesosNacional).
+
+2.1d Nota metodológica: qué significa "accesos fijos cada 100 hogares"
+- Es una PROPORCIÓN de ENACOM: (conexiones fijas declaradas por las empresas ÷
+  hogares) × 100. Ej.: Formosa 50,1 = unas 501 conexiones cada 1.000 hogares.
+- Por eso tiene decimales (como "1,6 hijos por mujer") y puede superar 100:
+  CABA 119,9 · San Luis 104,2 · La Pampa 103,3 (2026 T2). Cuenta también
+  conexiones de comercios y oficinas, y hogares con más de un servicio,
+  pero divide solo por hogares.
+- NO es "% de hogares conectados" (no se escribe con %). Para eso se usa la
+  EPH (INDEC): 93,7 % de los hogares urbanos tiene internet (4T 2024).
+- Sirve para comparar provincias y ver la evolución, no para decir qué parte
+  de los hogares está conectada. En el tablero se muestra con 1 decimal.
+
+2.2 Accesos totales (INDEC, encuesta a proveedores, 4T 2025)
+- 8.516.515 accesos fijos (+4,1% interanual) y 40.419.638 accesos móviles (+3,8%).
+- Hay casi 5 accesos móviles por cada acceso fijo.
+
+2.3 Nota metodológica: promedio simple vs. ponderado
+- El promedio simple de las 24 provincias da ~190 Mbps en 2026 T2, pero ENACOM
+  informa 264,56 Mbps nacional. ENACOM pondera por cantidad de conexiones; el
+  promedio simple pesa igual a Tierra del Fuego que a Buenos Aires.
+- Decisión: para el dato nacional se usa el total oficial de ENACOM.
+
+==================================================
+3. NIVEL PROVINCIAL (ENACOM, 2026 T2)
+==================================================
+
+3.1 Acceso: la brecha se achica
+- Accesos fijos cada 100 hogares, 2014 T3 → 2026 T2:
+    CABA:         113,80 → 119,93
+    Buenos Aires:  56,75 →  94,56
+    Chaco:         21,11 →  51,47
+    Formosa:       17,77 →  50,11
+- Brecha CABA – Formosa: 96,0 puntos (2014) → 69,8 puntos (2026).
+- Más bajas hoy: Formosa 50,11 / Chaco 51,47 / Misiones 56,57 / Corrientes 60,92.
+  → Las cuatro son del NEA.
+- Más altas hoy: CABA 119,93 / San Luis 104,18 / La Pampa 103,29 / TDF 97,85.
+
+3.2 Calidad: la brecha de velocidad es grande
+- Velocidad media de bajada (Mbps):
+    Más altas: CABA 372,42 / Buenos Aires 326,87 / San Luis 271,93 /
+               Neuquén 270,72 / San Juan 262,95
+    Más bajas: La Rioja 93,92 / Tierra del Fuego 101,17 / Jujuy 101,71 /
+               La Pampa 117,55 / Santiago del Estero 131,57
+- CABA tiene casi 4 veces la velocidad de La Rioja.
+
+3.3 Hallazgo clave: tener acceso no es tener calidad
+- Tierra del Fuego: 97,85 accesos cada 100 hogares (de los más altos),
+  pero 101,17 Mbps (2ª más baja).
+- La Pampa: 103,29 accesos cada 100 hogares (3ª más alta),
+  pero 117,55 Mbps (4ª más baja).
+→ Apoya la idea central del proyecto: la desigualdad hoy es de CALIDAD,
+  no solo de acceso.
+
+3.4 Tecnología: dónde llegó la fibra óptica (% de accesos fijos con fibra)
+- Tucumán 84,1% / Mendoza 71,3% / Buenos Aires 48,3% / CABA 44,2% /
+  Santiago del Estero 39,6% / La Rioja 28,6% / Tierra del Fuego 11,7%.
+- Tierra del Fuego depende sobre todo del cablemódem (58,8%).
+- San Luis tiene un 33,2% de accesos inalámbricos (wireless).
+
+3.5 Rangos de velocidad: la internet rápida pasó de excepción a norma
+- País: % de accesos fijos de más de 30 Mbps: 0,54% (2016 T4) -> 84,6% (2026 T2).
+- Buenos Aires 2016 T4: solo 17.279 de 3.138.541 accesos (0,55%) superaban
+  30 Mbps; el rango más común era 1-6 Mbps (2.085.605). En 2026 T2: 88,4%.
+- % de accesos de más de 30 Mbps por provincia (2026 T2):
+    Más bajos: San Luis 52,7 / Chubut 56,7 / Tierra del Fuego 61,2 /
+               Formosa 62,5 / Entre Ríos 62,6 / La Pampa 63,8
+    Más altos: CABA 95,7 / Tucumán 90,2 / Catamarca 90,2 / Buenos Aires 88,4
+- Nota: la categoría "Otros" vale 0 hasta 2016; ENACOM la usa desde 2017.
+- Fuente: ENACOM – accesos por rango de velocidad (fact_RangoVelocidad).
+
+==================================================
+4. INDICADORES SOCIALES
+==================================================
+
+4.0 Nota: qué es la EPH
+- EPH = Encuesta Permanente de Hogares, del INDEC (Instituto Nacional de
+  Estadística y Censos).
+- Es una ENCUESTA (muestra de hogares), no un censo. Es PERMANENTE: se hace
+  todo el año, desde 1973 (con cambio de método en 2003).
+- Cubre 31 aglomerados urbanos (ej.: Gran Buenos Aires, Gran Córdoba, Gran
+  Resistencia, Ushuaia-Río Grande), agrupados en 6 regiones estadísticas
+  (ver 7.18).
+- Es la fuente oficial de pobreza e indigencia, empleo e ingresos, y tiene
+  un módulo de acceso y uso de TIC (internet, computadora, celular).
+- En el tablero: pág. 1 (93,7 % de hogares urbanos con internet), pág. 2
+  (pobreza por región), pág. 5 (edad x educación; celular vs. computadora).
+  Tablas: fact_PobrezaAreas, fact_EphTicAreas, fact_EphTicEdadSexo,
+  fact_EphTicEdadEducacion.
+- Límite: es solo URBANA; no incluye zonas rurales ni pueblos chicos
+  (figura en las Limitaciones de la Conclusión).
+- Para la defensa: "La EPH es la Encuesta Permanente de Hogares del INDEC.
+  Es la fuente oficial de pobreza en Argentina y tiene un módulo sobre
+  acceso a internet y dispositivos. Cubre 31 aglomerados urbanos."
+
+4.1 Censo 2022 – Salta (primer cuadro revisado)
+- Personas en viviendas con internet: 922.593 (64,3%).
+- Personas con computadora/tablet: 688.056 (48,0%).
+- Sin internet, sin computadora y sin celular con internet: 192.062 (13,4%).
+  → "Exclusión digital total": 1 de cada 7 salteños.
+- Pendiente: calcular estos tres indicadores para las 24 provincias.
+
+4.2 EPH TIC – 2020 vs. 2024 (31 aglomerados urbanos)
+- Hogares con internet: 90,0% → 93,7% (sube).
+- Hogares con computadora: 63,8% → 60,3% (BAJA).
+  → Más gente se conecta solo con el celular.
+- Personas de 65 años y más que usan internet: 55,2% → 74,2%.
+- Personas de 65+ sin instrucción que usan internet: 13,0% → 26,0%
+  (mejora, pero solo 1 de cada 4).
+- 2024: usa internet el 96,5% de las personas de 18 a 29 años, contra el
+  74,2% de las de 65 y más.
+- 2020: uso de computadora: CABA 65,9% vs. Posadas 23,7%.
+- 2020: Ushuaia-Río Grande tenía el mayor acceso de hogares a internet (98,4%).
+
+4.3 Pobreza – EPH 2º semestre 2024 (% de personas)
+- Más altas: Gran Resistencia 60,8% / Concordia 57,1% /
+  Santiago del Estero-La Banda 48,6%.
+- Más bajas: CABA 16,7% / Bahía Blanca-Cerri 25,5%.
+- Ushuaia-Río Grande: 31,8%. Total 31 aglomerados: 38,1%.
+
+==================================================
+5. LECTURA PRELIMINAR DE LA HIPÓTESIS
+==================================================
+
+Hipótesis: las zonas con más pobreza tienen menos acceso y menor velocidad.
+
+- APOYO PARCIAL en ACCESO: las provincias con menos accesos (Formosa, Chaco,
+  Misiones, Corrientes) son del NEA, la región con más pobreza
+  (Gran Resistencia 60,8%).
+- NO ALCANZA para explicar la CALIDAD: Tierra del Fuego y La Pampa tienen
+  pobreza media o baja y mucho acceso, pero velocidades de las más bajas.
+  → Además de la pobreza, influyen la geografía y la infraestructura
+    (TDF: isla, un solo tendido de fibra, poca fibra óptica).
+- Pendiente: cruzar pobreza y conectividad con un gráfico de dispersión
+  (EPH TIC 4T 2024 y pobreza 2S 2024, por aglomerado).
+
+==================================================
+6. PENDIENTES DE VERIFICACIÓN
+==================================================
+
+- En el gráfico de prueba aparece una región "(En blanco)": revisar si alguna
+  provincia de las tablas de ENACOM no coincide con dim_Provincias.
+- Confirmar los valores de 2014 T3 con el archivo completo (se leyeron de la
+  vista de tabla).
+- Investigar la causa del salto de precios de 2024 en fuentes oficiales.
+- Verificar con los datos completos si la brecha de VELOCIDAD entre provincias
+  creció en términos absolutos desde 2014 (necesario para el hallazgo 7.1).
+
+6b. LIMITACIONES DE LOS DATOS
+- Cortes de energía (apagones): los indicadores miden si un hogar TIENE conexión,
+  no si el servicio funciona de forma continua.
+    · ENACOM cuenta accesos contratados (servicios activos informados por las
+      empresas): un corte de luz no da de baja el contrato, el acceso se sigue
+      contando.
+    · EPH y Censo preguntan si el hogar tiene internet, no si funcionó todos los
+      días.
+  -> Los apagones NO explican la caída de 2022 (cambio de denominador, ver 2.1c)
+     ni la caída de Gran Resistencia (7.7).
+  -> Sí son una brecha real que estos datos no capturan: brecha de CONTINUIDAD del
+     servicio (un hogar "conectado" en los datos puede quedarse sin internet cada
+     vez que se corta la luz).
+  -> No hay un dato oficial homogéneo para las 24 jurisdicciones: el ENRE publica
+     informes de calidad y cortes solo de Edenor y Edesur (AMBA); cada provincia
+     tiene su propio organismo regulador.
+  -> Uso en el tablero: mencionarlo en la conclusión como limitación y línea
+     futura de análisis.
+  Texto sugerido: "Los indicadores miden si un hogar tiene conexión, no si el
+  servicio funciona de forma continua: los cortes de energía son una brecha que
+  estos datos no capturan."
+  Fuentes (contexto): ENRE – Calidad del servicio, revisión semestral
+  (argentina.gob.ar/enre/calidad-del-servicio); informes semestrales de desempeño
+  Edenor/Edesur (argentina.gob.ar).
+
+==================================================
+7. GRAN IDEA Y HALLAZGOS NO OBVIOS
+==================================================
+Marco: "Storytelling with Data" (Cole Nussbaumer Knaflic) + Data Viz Catalogue.
+
+GRAN IDEA (una oración):
+"En Argentina casi todos los hogares ya pueden conectarse, pero la desigualdad
+no desapareció: se mudó del acceso a la calidad y al costo. Si solo medimos
+cuántos están conectados, vamos a creer que la brecha está resuelta cuando no
+lo está."
+
+Hallazgos no obvios:
+7.1 La brecha cambió de forma: la de acceso se achica (CABA-Formosa 96 -> 70
+    puntos), pero la de calidad sigue enorme (CABA ~4 veces la velocidad de
+    La Rioja). [verificar evolución de la brecha de velocidad]
+7.2 Paradoja TDF / La Pampa: de las de MÁS acceso y MENOS velocidad.
+7.3 "El norte" no siempre está atrás: Tucumán 84% de fibra óptica, casi el
+    doble que CABA (44%); Tierra del Fuego solo 12%.
+7.4 Internet sube, la computadora baja (hogares: internet 90 -> 94%,
+    computadora 64 -> 60%, 2020-2024): conectividad "de bolsillo".
+7.5 En 2024 internet costó 13,8% del ingreso (antes ~5%); Comunicación +186%
+    vs. inflación +118%.
+7.6 En adultos mayores pesa más la educación que la edad: 65+ sin instrucción
+    26% usa internet vs. ~93% con estudios superiores.
+7.7 *** HALLAZGO FUERTE *** Gran Resistencia (Chaco), el aglomerado con MÁS
+    pobreza del país (60,8% de personas, 2S 2024), es el único donde el acceso
+    a internet en los hogares CAYÓ fuerte mientras el país subía:
+      Hogares con internet:    92,9% (2020) -> 86,4% (2023) -> 80,0% (2024)
+      Hogares con computadora: 57,5% (2020) -> 37,9% (2024)  (-19,6 puntos)
+    En el mismo período, CABA subió en computadora: 82,8% -> 85,4%.
+    -> La brecha no solo persiste: en el aglomerado más pobre se está ABRIENDO.
+    Es una tendencia sostenida (2020, 2023 y 2024), no un dato aislado.
+    Otras caídas en computadora 2020-2024: Gran Paraná -15,8 / Santiago del
+    Estero-La Banda -14,1 / Viedma-C. de Patagones -12,0 / Gran San Luis -11,3.
+    Fuente: EPH TIC 4T 2020, 2023 y 2024 (cuadro 1); pobreza 2S 2024 (cuadro 4.1).
+    Precaución: datos de encuesta por muestra; aglomerados chicos tienen más error.
+7.8 El promedio esconde la desigualdad interna: San Luis
+    Tiene una de las velocidades MEDIAS más altas del país (271,93 Mbps, 3ª)
+    y mucho acceso (104,18 cada 100 hogares), pero es la provincia con MENOR
+    % de conexiones de más de 30 Mbps (52,7%). Casi la mitad de sus conexiones
+    son lentas; un tercio es inalámbrica (33,2% wireless).
+    -> Un promedio alto puede ocultar que muchos hogares siguen mal conectados.
+    -> Refuerza la decisión de mostrar DISTRIBUCIÓN (rangos), no solo promedios.
+7.9 Patagonia: la región "rica" con conexiones lentas
+    Chubut (56,7%), Tierra del Fuego (61,2%), La Pampa (63,8%) y Santa Cruz
+    (67,5%) están entre las de menor % de conexiones >30 Mbps, mientras que
+    Chaco (84,0%), Tucumán y Catamarca (90,2%) superan la media nacional.
+    -> La calidad no sigue el mapa de la pobreza: sigue el de la infraestructura.
+
+7.10 *** HALLAZGO NO OBVIO (mapa) *** La internet rápida no sigue el mapa de la pobreza
+    % de conexiones fijas de más de 30 Mbps (ENACOM, 2026 T2) vs. pobreza (EPH 2S 2024):
+      El norte más pobre tiene BUENA calidad: Chaco 84,0 % / Tucumán 90,2 % /
+      Catamarca 90,2 % / Salta 83,0 % / Corrientes 83,6 %.
+      Las conexiones más lentas están donde hay MENOS pobreza: San Luis 52,7 % /
+      Chubut 56,7 % / Tierra del Fuego 61,2 % / La Pampa 63,8 % / Santa Cruz 67,5 %
+      (pobreza: Ushuaia-Río Grande 31,8 %, Comodoro 34,7 %, Santa Rosa-Toay 32,1 %).
+    -> Pero tener buena red no alcanza: en Chaco, Gran Resistencia (60,8 % de pobreza)
+       perdió hogares conectados (92,9 % -> 80,0 %). Ahí la barrera es el costo y los
+       dispositivos, no la infraestructura.
+    -> Dos brechas distintas: ACCESO (sigue a la pobreza) y CALIDAD (sigue a la
+       infraestructura). Necesitan soluciones distintas.
+    Visual: mapa de formas coloreado por % >30 Mbps + puntos por aglomerado (pobreza).
+
+7.11 *** HALLAZGO NO OBVIO *** El satélite (Starlink) es la conexión que más crece
+    Contexto: ENACOM autorizó a Starlink, OneWeb y Amazon Kuiper el 26/02/2024
+    (Res. 1 a 4/2024). En julio 2026 se anunció un acuerdo ENACOM–Starlink para
+    6.000 escuelas rurales.
+    Accesos fijos de tecnología "Otros" (donde ENACOM incluiría el satelital):
+      2023 T4: 194.796 (1,7 % de los accesos fijos)
+      2026 T2: 965.634 (7,0 %)  -> casi x5 en dos años y medio.
+      Explica ~35 % de todos los accesos fijos nuevos del período.
+      Coincide con lo que informa ENACOM: ~800.000 accesos satelitales, +300 %
+      interanual (DPL News, oct. 2026).
+    Por provincia (2026 T2, % de accesos que son "Otros"):
+      Formosa 27,8 % / Tierra del Fuego 27,8 % / Jujuy 25,5 % / Neuquén 23,7 % /
+      Río Negro 22,4 % / Santa Cruz 19,1 % / Salta 18,0 % / Chubut 18,0 %
+      (CABA 2,2 % / Buenos Aires 3,8 %).
+    -> Formosa: 185 accesos "Otros" en 2023 T4 -> 28.569 en 2026 T2. Entre 2025 T2 y
+       2026 T2 el 72 % de sus accesos nuevos fueron "Otros". Esto explica el salto de
+       Formosa (33,7 -> 50,1 accesos cada 100 hogares).
+    -> Tierra del Fuego: "Otros" sumó 10.700 accesos mientras el total creció solo
+       3.800 -> la gente se está pasando al satélite (la isla depende de un solo
+       tendido de fibra).
+    -> Lectura: el satélite está cerrando la brecha de ACCESO donde no llega la red,
+       pero es caro (abono residencial desde $38.000/mes + equipo desde $299.000,
+       Mercado 2026): la brecha puede pasar a ser de COSTO.
+    [Verificar: confirmar con ENACOM que "Otros" incluye satelital y qué más incluye.]
+    Fuentes: ENACOM accesos por tecnología (fact_Tecnologias); Marval (Res. ENACOM
+    1-4/2024); MercoPress 27/07/2026; DPL News 16/10/2026; Mercado 2026.
+
+7.12 *** A VERIFICAR *** San Luis: de la menos conectada a la 2ª más conectada
+    Accesos fijos cada 100 hogares (ENACOM):
+      2014 T1: 9,35 / 2017 T3: 15,48 / 2018 T3: 52,35 / 2019 T3: 85,23 /
+      2026 T2: 104,18
+    -> Pasó de 15 a 85 en dos años (2017-2019).
+    Accesos por tecnología (T2): 2014: 13.055 en total (casi todo ADSL) /
+      2018: 21.468 / 2020: 113.952 (Wireless 60.935 + Otros 36.253) /
+      2026: 192.167 (Fibra 84.360, Wireless 63.791).
+    -> Un salto así suele indicar una red (probablemente inalámbrica provincial)
+       que empezó a informarse a ENACOM, más que hogares conectados de golpe.
+    -> Consecuencia: el valor de San Luis en 2014 estaría SUBESTIMADO. Por eso la
+       brecha de la página 2 se mide CABA - Formosa (95,6 -> 69,8, 2014 T2 vs
+       2026 T2) y no "máximo - mínimo" (daría San Luis en 2014 y una brecha
+       inflada).
+    -> Relación con 7.8: hoy San Luis tiene mucho acceso pero la peor calidad
+       (52,7 % de conexiones > 30 Mbps; un tercio inalámbrico).
+    EN PALABRAS SIMPLES (cómo explicarlo):
+    - ENACOM no cuenta los hogares uno por uno: arma su estadística con lo
+      que le DECLARAN (informan) las empresas de internet. ENACOM es quien
+      PUBLICA los datos; las empresas son las que DECLARAN sus conexiones.
+    - Si una empresa ya daba internet pero no declaraba sus conexiones, esas
+      casas no figuraban. Cuando empieza a declararlas, aparecen todas de
+      golpe y parece que la provincia creció muchísimo en un año.
+    - Ejemplo: como alguien que trabaja pero no aparece en un censo porque
+      nunca completó el formulario: el trabajo existía, el registro no.
+    - Posibles motivos (no confirmados): empresas chicas o cooperativas que
+      no mandaban los datos; una red provincial que no informaba; o un
+      cambio en cómo ENACOM pedía o procesaba los datos.
+    - Lo que SABEMOS: el salto es enorme y viene casi todo de conexiones
+      inalámbricas. Lo que NO SABEMOS: el motivo exacto (no hay documento
+      oficial). Por eso se escribe como sospecha ("parece").
+    - Texto para la Lectura de la página 2:
+      "En San Luis, el salto de 2018-19 parece deberse a conexiones
+       inalámbricas que antes no se declaraban al ENACOM, no a hogares nuevos."
+    - Para la defensa: "ENACOM arma su estadística con lo que le declaran las
+      empresas. Si una empresa no declaraba sus conexiones y después empezó
+      a hacerlo, aparecen todas de golpe. Creemos que eso pasó en San Luis,
+      pero no está confirmado."
+    - Idea clave ("el dato que no se ve"): un número en el tablero no
+      siempre es un cambio en la realidad; a veces es un cambio en cómo se mide.
+    [Verificar: buscar en ENACOM o en el gobierno de San Luis si hubo
+     incorporación de un operador/red provincial a las estadísticas 2018-2019.]
+    Fuente: ENACOM – accesos por provincia y por tecnología (fact_Accesos,
+    fact_Tecnologias).
+
+7.13 *** CONTEXTO, NO OFICIAL (salvo donde se indica) *** Polos tecnológicos
+    Tres provincias tienen políticas tecnológicas propias:
+    - San Luis: agenda "San Luis Digital", Parque Informático La Punta y la
+      Autopista de la Información (AUI), red provincial con WiFi gratuito.
+      -> Es una RED INALÁMBRICA PROVINCIAL: encaja con la sospecha de 7.12
+         (salto 2018-19 casi todo inalámbrico). Falta confirmar si esa red
+         empezó a declararse al ENACOM en esos años.
+    - Misiones: centro regional de innovación "Silicon Misiones" (Posadas),
+      creado por la Legislatura en 2020.
+      -> DATO QUE NO SE VE: aun con polo tecnológico, Misiones sigue entre las
+         4 provincias con menos acceso fijo (56,6 cada 100 hogares, 2026 T2).
+         Un polo concentra empresas y talento en la capital; no significa que
+         los hogares (sobre todo rurales) estén conectados.
+    - Tierra del Fuego: el Gobierno nacional anunció un polo tecnológico de
+      programación (Río Grande); la provincia tiene ley de promoción del
+      software (Ley prov. 1279, modificada en 2021) y un programa de empleo
+      en economía del conocimiento (Res. 194/22).
+      -> DATO QUE NO SE VE: mucho acceso pero baja calidad (11,7 % fibra,
+         61,2 % de conexiones > 30 Mbps). Un polo de programación necesita
+         buena conexión, y la red de la provincia es de las más lentas.
+    Fuentes: ver registro_fuentes.txt (AGREGADOS 03/11/2026). Son contexto,
+    no se grafican. [Pendiente: número de ley de Silicon Misiones y norma
+    oficial de la AUI de San Luis.]
+
+7.14 La pandemia aceleró las conexiones (pero no sabemos si por el teletrabajo)
+    Crecimiento de accesos fijos TOTALES (cantidad de conexiones, no cada 100
+    hogares, para evitar el cambio de denominador de 2022), 4.º trimestre:
+                         2017-2019   2019-2021 (pandemia)   2021-2023
+      País                 +11,7 %        +19,3 %             +10,1 %
+      Tierra del Fuego     +40,0 %        +29,6 %             +17,7 %
+      Misiones             +30,7 %        +26,0 %             +17,1 %
+      San Luis            +626,0 % (*)     +9,8 %             +30,2 %
+    -> En el país, las conexiones crecieron casi el DOBLE en la pandemia que
+       antes y después. Tierra del Fuego y Misiones ya venían creciendo fuerte
+       antes, y en la pandemia siguieron por encima del promedio.
+    -> Los que más crecieron en pandemia: La Rioja (+69,6 %), Chubut (+66,8 %),
+       Catamarca (+54,2 %) y Mendoza (+44,0 %). [Revisar si alguno es, como
+       San Luis, una empresa que empezó a declarar.]
+    -> LÍMITE: los datos de ENACOM no dicen POR QUÉ se conectaron. Puede ser
+       teletrabajo, clases virtuales, trámites online o todo junto. No se
+       puede afirmar que fue el trabajo remoto; solo que la pandemia coincide
+       con el mayor crecimiento.
+    (*) San Luis 2017-2019: ver 7.12 (probable red que empezó a declararse).
+    Fuente: ENACOM – accesos por tecnología por provincia (columna Total,
+    enacom_tecnologias_provincias.csv). Cálculo propio.
+
+7.15 El promedio nacional de velocidad esconde a 20 de las 24 provincias
+    Velocidad media de bajada, 2026 T2 (ENACOM). Promedio nacional: 264,6 Mbps.
+    -> Solo 4 provincias lo superan: CABA 372,4 · Buenos Aires 326,9 ·
+       San Luis 271,9 · Neuquén 270,7. San Juan queda justo debajo (263,0).
+    -> Las otras 20 están por debajo. Las más lentas: La Rioja 93,9 ·
+       Tierra del Fuego 101,2 · Jujuy 101,7 · La Pampa 117,6.
+    -> Por qué: el promedio nacional pesa por cantidad de conexiones, y CABA y
+       Buenos Aires concentran la mayoría. Un "país promedio" de 264,6 Mbps
+       casi no existe fuera del AMBA.
+    -> CABA tiene casi 4 veces la velocidad de La Rioja (372,4 / 93,9 = 3,97).
+    -> Mucho acceso, poca velocidad: Tierra del Fuego (97,9 accesos · 101,2
+       Mbps) y La Pampa (103,3 accesos · 117,6 Mbps).
+    -> El NEA (Formosa 151,6 · Chaco 159,6 · Misiones 168,8) tiene POCO acceso
+       pero velocidad mayor que Tierra del Fuego o La Pampa: su problema es
+       el acceso, no la calidad (ver 7.10).
+    Uso: página 3, gráfico de dispersión con línea constante Y = 264,6.
+    Fuente: ENACOM – velocidad media de bajada por provincia y accesos cada
+    100 hogares (fact_Velocidad, fact_Accesos), 2026 T2.
+
+7.16 Página 4: la fibra no sigue a la riqueza, y "Otros" no siempre fue satélite
+    % de accesos fijos con fibra óptica, 2026 T2 (ENACOM). País: 50,1 %.
+    -> Tucumán 84,1 % (1ª) · CABA 44,2 % (15ª) · Tierra del Fuego 11,7 % (última).
+    -> CABA tiene poca fibra porque más de la mitad de sus accesos (52,8 %)
+       siguen siendo de cable (cablemodem): tendió su red antes. Las provincias
+       que la tendieron hace poco lo hicieron directamente con fibra.
+    -> Tierra del Fuego: última en fibra y 2ª más lenta (ver 7.15). La falta de
+       fibra explica su baja velocidad.
+    -> % de accesos "Otros" (incluye satelital): Formosa y Tierra del Fuego
+       27,8 % (las más altas), Neuquén 23,7 %, Río Negro 22,4 %; CABA 2,2 %.
+    -> OJO: "Otros" ya había subido en 2018-2019 (de ~95 mil a ~265 mil),
+       ANTES de Starlink. Ese salto viene de Jujuy, San Luis, Santiago del
+       Estero, Santa Fe, etc. Confirma que "Otros" no es solo satelital: por
+       eso el gráfico dice "incluye satelital". El salto de 2024-2026
+       (194.796 -> 965.634, × 5) sí coincide con la autorización de Starlink.
+    Uso: página 4 (barras % fibra + línea de accesos "Otros").
+    Fuente: ENACOM – accesos por tecnología por provincia (fact_Tecnologias).
+    Cálculo propio.
+
+7.17 El factor edad: los mayores crecieron más, pero la educación pesa más
+    % de personas que usan internet, EPH TIC (31 aglomerados urbanos, 4 años
+    y más), 2020 -> 2024:
+      4 a 12 años   82,8 -> 79,0   (BAJÓ; computadora 39,1 -> 28,4)
+      13 a 17       95,3 -> 94,8
+      18 a 29       93,9 -> 96,5
+      30 a 64       88,4 -> 94,1
+      65 y más      55,2 -> 74,2   (+19 puntos: el grupo que más creció)
+    -> Los mayores de 65 siguen siendo el grupo más rezagado (74,2 % vs. ~95 %),
+       pero son los que más avanzaron desde la pandemia.
+    -> DATO QUE NO SE VE (1): dentro de los 65+, la educación abre una brecha
+       de 67 puntos: sin instrucción 26,0 % vs. superior completa 92,7 %.
+       Entre jóvenes (18-29) y mayores (65+) con superior completa la
+       diferencia es de solo 6 puntos (98,8 vs. 92,7).
+    -> DATO QUE NO SE VE (2): un joven de 18-29 sin instrucción (45,6 %) usa
+       internet MENOS que un mayor de 65 con primaria completa (62,9 %).
+       No es la edad: es la educación.
+    -> DATO QUE NO SE VE (3): los chicos de 4 a 12 son el único grupo que
+       BAJÓ (82,8 -> 79,0) y su uso de computadora cayó 10 puntos
+       (39,1 -> 28,4). Posible efecto del fin de las clases virtuales
+       (hipótesis, no verificada).
+    -> Mayores: celular 85,1 % pero computadora 17,8 % (2024): se conectan
+       con el celular.
+    Uso: página 6 (Quiénes quedan afuera), mapa de calor edad x educación.
+    Fuente: INDEC – EPH, Acceso y uso de TIC, 4T 2020 / 2023 / 2024
+    (fact_EphTicEdadSexo, fact_EphTicEdadEducacion).
+
+7.18 Pobreza por región: ordena el ACCESO, no la VELOCIDAD
+    Pobreza (% personas, EPH 2S 2024, regiones) vs. promedio simple de las
+    provincias de cada región (ENACOM 2026 T2). CABA y Buenos Aires = GBA.
+      Región       Pobreza   Accesos/100 hog.   Velocidad (Mbps)   % > 30 Mbps
+      Patagonia     33,5         91,1              181,7              68,9
+      Pampeana      35,6         84,3              154,3              73,6
+      GBA           37,3        107,2              349,6              92,0
+      Cuyo          41,9         75,9              252,4              72,2
+      Noroeste      42,8         68,8              144,4              79,8
+      Noreste       47,0         54,8              164,5              76,1
+    -> ACCESO: a más pobreza, menos acceso (casi en orden; GBA es la excepción
+       porque CABA tiene la mayor conexión del país).
+    -> VELOCIDAD: no sigue la pobreza. Cuyo (41,9 % pobreza) es la 2ª más
+       rápida; Pampeana y Patagonia (las menos pobres) son de las más lentas.
+       Con % > 30 Mbps: Noroeste (pobre) 79,8 > Patagonia (la menos pobre) 68,9.
+    -> Prueba visual de la conclusión: la pobreza explica el acceso, no la
+       calidad.
+    OJO (limitación): la pobreza de la EPH es urbana y por región; los
+    accesos son por provincia y se promedian sin ponderar. Buenos Aires
+    provincia se asigna a GBA aunque parte de ella es región Pampeana.
+    QUÉ ES "GRAN BUENOS AIRES" (región estadística del INDEC, no geográfica):
+    La EPH agrupa sus 31 aglomerados urbanos en 6 regiones:
+      Gran Buenos Aires = CABA + los 24 partidos del conurbano bonaerense.
+      Pampeana  = Córdoba, Santa Fe, Entre Ríos, La Pampa e INTERIOR de
+                  Buenos Aires (Gran La Plata, Mar del Plata, Bahía Blanca...).
+      Noreste   = Corrientes, Chaco, Formosa, Misiones.
+      Noroeste  = Jujuy, Salta, Tucumán, Catamarca, La Rioja, Sgo. del Estero.
+      Cuyo      = Mendoza, San Juan, San Luis.
+      Patagonia = Neuquén, Río Negro, Chubut, Santa Cruz, Tierra del Fuego.
+    El INDEC separa al GBA porque concentra más de un tercio de la población
+    urbana del país.
+    En el tablero (columna RegionEPH de dim_Provincias) se asigna CABA y TODA la
+    provincia de Buenos Aires a Gran Buenos Aires, porque ENACOM da la
+    provincia completa (sin separar conurbano e interior). Es una
+    aproximación: el interior bonaerense en la EPH es Pampeana.
+    Para la defensa: "Uso las regiones del INDEC porque la pobreza de la EPH
+    viene por región. Gran Buenos Aires es CABA más el conurbano; como ENACOM
+    da la provincia completa, asigno Buenos Aires entera a GBA, y lo aclaro
+    como limitación."
+    Nota: existe el informe de pobreza 2S 2025 (informes_indec). Se usa 2S
+    2024 para coincidir con la EPH TIC 4T 2024.
+    Fuentes: INDEC – EPH pobreza 2S 2024 (fact_PobrezaAreas); ENACOM
+    (fact_Accesos, fact_Velocidad, fact_RangoVelocidad). Cálculo propio.
+
+==================================================
+8. GUION DEL TABLERO (STORYBOARD)
+==================================================
+DECISIÓN 04/11/2026 (actualizada): portada + 6 páginas, Conclusión propia.
+  Inicio · 1 Conectados · 2 Acceso · 3 Calidad (+ dato del mapa en la
+  Lectura: Chaco 84 %, Tucumán/Catamarca 90 % de conexiones > 30 Mbps vs.
+  TDF 61 %, La Pampa 64 %, San Luis 53 %) · 4 Tecnología ·
+  5 Quiénes quedan afuera y cuánto cuesta (edad x educación, celular vs.
+    computadora, costo UIT y vecinos) ·
+  6 Conclusión (hipótesis y resultado, acceso/calidad/quiénes/costo,
+    limitaciones: apagones, "Otros", San Luis, EPH solo urbana).
+  Se eliminan el mapa como página y la ficha provincial (opcional: tooltip
+  "ficha provincial"). Gran Resistencia pasa a la Conclusión.
+  Boceto: powerbi\recursos\Diseno_tablero_Brecha_Digital_v2.pdf.
+  La tabla de abajo es el guion original de 10 páginas (referencia).
+
+Pág. | Título-conclusión                              | Visual
+1    | "Casi todos están conectados..."               | Texto simple / número grande
+2    | "...y la brecha de acceso se achica"           | Gráfico de pendiente 2014 vs 2026
+3    | "Pero tener internet no es tener buena         | Dispersión acceso vs velocidad
+     |  internet"                                     |   (destacar TDF y La Pampa)
+4    | "La fibra no llegó donde creíamos"             | Barras 100% apiladas por % fibra
+5    | "Dónde vive hoy la desigualdad"                | Mapa coroplético (Shape Map)
+6    | "Nos conectamos con el celular, no con la PC"  | Líneas internet vs computadora
+7    | "La educación pesa más que la edad"            | Mapa de calor edad x educación
+8    | "En 2024, conectarse costó el triple"          | Líneas IPC Comunicación vs inflación
+9    | Conclusión: dónde invertir                     | Texto + recomendación
+
+Reglas de diseño (libro): títulos que dicen la conclusión; gris + un color de
+acento; sin tortas, 3D ni doble eje; quitar el desorden (bordes, cuadrículas).
+
+==================================================
+9. PALETA DE COLORES (elegida 01/11/2026)
+==================================================
+Regla del libro: casi todo en gris + UN color de acento.
+- Acento (lo que se destaca):  #5B7F2B verde oliva
+- Acento oscuro / claro:       #3B551A / #C5D6A3
+- Gris para datos de contexto: #B8B4AC
+- Gris para textos secundarios:#5A5650
+- Títulos:                     #2A2824
+- Fondo de página:             #FAF8F3
+- Mapa (de menos a más conectividad):
+    #EEF3E2  #C5D6A3  #93B15E  #5B7F2B  #3B551A
+  -> Verde se lee como "bueno": el mapa muestra % CON internet
+     (más oscuro = más conectado). Las zonas claras son la brecha.
+- Tema de Power BI: tema_brecha_digital_oliva.json
+  (el primer color es GRIS: todo sale gris y se destaca a mano en oliva).
